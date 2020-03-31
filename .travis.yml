@@ -4,28 +4,12 @@ cache:
   apt: true
   directories:
     - node_modules # 缓存不经常更改的内容
-before_install:
-  - npm install hexo-cli -g
 install:
   - npm install # 安装hexo及插件
 script:
   - hexo clean # 清除
   - hexo g # 生成
-after_script:
-  - git clone https://${GH_REF} .deploy_git
-  - cd .deploy_git
-  - git checkout master
-  - cd ../
-  - mv .deploy_git/.git/ ./public/
-  - cd ./public
-  - git config user.name "samoz"
-  - git config user.email "15176981781@163.com"
-  - git add .
-  - git commit -m "Travis CI Auto Builder"
-  - git push --force --quiet "https://${Travis}@${GH_REF}" master:master
+  - hexo d
 branches:
   only:
     - hexo # 只监测hexo分支
-env:
-  global:
-    - GH_REF: https://github.com/SamoZ/samoz.github.io.git #设置GH_REF，注意更改成自己的仓库地址
