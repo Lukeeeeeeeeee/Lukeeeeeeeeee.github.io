@@ -1,15 +1,34 @@
 language: node_js # 设置语言
+
 node_js: stable # 设置相应版本
+
 cache:
   apt: true
   directories:
-    - node_modules # 缓存不经常更改的内容
+    - node_modules # 设置缓存，传说会在构建的时候快一些
+
+before_install:
+  - npm install hexo-cli -g
+
 install:
   - npm install # 安装hexo及插件
+
 script:
   - hexo clean # 清除
   - hexo g # 生成
-  - hexo d
+
+after_script:
+  - git clone ${GH_REF} pub_web # 因为我有两个仓库，先将发布服务的仓库clone下来，
+  - cp -rf public/* pub_web/ # 将源博客仓库(blog.git)目录下的public文件夹下的文件复制到发布服务的仓库(chenzhijun.github.com.git)中
+  - cd pub_web # 进入到git仓库
+  - git config user.name "samoz"
+  - git config user.email "15176981781@163.com"
+  - git add .
+  - git commit -am "Travis CI Auto Builder :$(date '+%Y-%m-%d %H:%M:%S' -d '+8 hour')" # 零时区，+8小时
+  - git push origin master
 branches:
   only:
-    - hexo # 只监测hexo分支
+    - hexo #只监测master分支,这是我自己的博客，所以就用的master分支了。
+env:
+  global:
+    - GH_REF: https://samoz:${Travis}@github.com/samoz/github.io.git #设置GH_REF，注意更改yourname,GITHUB_TOKEN:就是我们在travis-ci仓库中配置的环境变量
