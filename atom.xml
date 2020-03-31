@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>SamoZ</title>
+  
+  <subtitle>菜鸟前端, 码农</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-03-30T14:20:29.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>SamoZ</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于JavaScript的变量提升</title>
+    <link href="http://yoursite.com/2020/03/30/%E5%85%B3%E4%BA%8EJavaScript%E7%9A%84%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87/"/>
+    <id>http://yoursite.com/2020/03/30/%E5%85%B3%E4%BA%8EJavaScript%E7%9A%84%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87/</id>
+    <published>2020-03-30T14:20:29.000Z</published>
+    <updated>2020-03-30T14:20:29.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于JavaScript的函数声明和函数表达式</title>
+    <link href="http://yoursite.com/2020/03/30/%E5%85%B3%E4%BA%8EJavaScript%E7%9A%84%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E5%92%8C%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>http://yoursite.com/2020/03/30/%E5%85%B3%E4%BA%8EJavaScript%E7%9A%84%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E5%92%8C%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/</id>
+    <published>2020-03-30T14:03:15.000Z</published>
+    <updated>2020-03-30T14:03:15.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一道关于JavaScript综合面试题</title>
+    <link href="http://yoursite.com/2020/03/30/%E4%B8%80%E9%81%93%E5%85%B3%E4%BA%8EJavaScript%E7%BB%BC%E5%90%88%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <id>http://yoursite.com/2020/03/30/%E4%B8%80%E9%81%93%E5%85%B3%E4%BA%8EJavaScript%E7%BB%BC%E5%90%88%E9%9D%A2%E8%AF%95%E9%A2%98/</id>
+    <published>2020-03-30T12:29:04.000Z</published>
+    <updated>2020-03-30T12:29:04.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;作者：Wscats&lt;br&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL1dzY2F0cy9hcnRpY2xlcy9pc3N1ZXMvODU=&quot; title=&quot;https://github.com/Wscats/articles/issues/85&quot;&gt;https://github.com/Wscats/articles/issues/85&lt;i class=&quot;fa fa-external-link&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;以下是我之前确实面试过的一道题，当时答的很不好，事后也想不起来了，正好前两天看到一个公众号发出来了，把思路也给捋清楚了，就记录到这里了。&lt;/p&gt;
+&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;function Foo() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    getName &amp;#x3D; function() &amp;#123; alert(1); &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return this;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Foo.getName &amp;#x3D; function() &amp;#123; alert(2); &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Foo.prototype.getName &amp;#x3D; function() &amp;#123; alert(3); &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var getName &amp;#x3D; function() &amp;#123; alert(4); &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;function getName() &amp;#123; alert(5); &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#x2F;&amp;#x2F; 请写出一下输出结果&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Foo.getName();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;getName();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Foo().getName();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;getName();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;new Foo.getName();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;new Foo().getName();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;new new Foo().getName();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="面试题汇总" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>手动实现Promise</title>
+    <link href="http://yoursite.com/2020/03/30/%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0Promise/"/>
+    <id>http://yoursite.com/2020/03/30/%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0Promise/</id>
+    <published>2020-03-30T12:23:01.000Z</published>
+    <updated>2020-03-30T12:23:01.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+      <category term="Promise" scheme="http://yoursite.com/tags/Promise/"/>
+    
+  </entry>
+  
+</feed>
