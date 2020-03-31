@@ -98,9 +98,7 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repository: https://github.com/SamoZ/samoz.github.io.git
-  branch: master
+  type: ''
 
 # 首页展示部分文章
 excerpt:
