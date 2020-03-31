@@ -28,11 +28,15 @@
 <meta property="og:site_name" content="SamoZ">
 <meta property="og:description" content="作者：Wscatshttps:&#x2F;&#x2F;github.com&#x2F;Wscats&#x2F;articles&#x2F;issues&#x2F;85  以下是我之前确实面试过的一道题，当时答的很不好，事后也想不起来了，正好前两天看到一个公众号发出来了，把思路也给捋清楚了，就记录到这里了。 题目1234567891011121314151617function Foo() &amp;#123;    getName &#x3D; function">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.downk.cc/item/5e832ef7504f4bcb0433479c.png">
+<meta property="og:image" content="https://pic.downk.cc/item/5e832ff1504f4bcb043409d6.png">
+<meta property="og:image" content="https://pic.downk.cc/item/5e83305f504f4bcb04346114.png">
 <meta property="article:published_time" content="2020-03-30T12:29:04.000Z">
 <meta property="article:modified_time" content="2020-03-30T12:29:04.000Z">
 <meta property="article:author" content="SamoZ">
 <meta property="article:tag" content="面试题汇总">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.downk.cc/item/5e832ef7504f4bcb0433479c.png">
 
 
 
@@ -226,14 +230,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
+              <span>4.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -250,7 +254,8 @@
 </blockquote>
 <p>以下是我之前确实面试过的一道题，当时答的很不好，事后也想不起来了，正好前两天看到一个公众号发出来了，把思路也给捋清楚了，就记录到这里了。</p>
 <h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function Foo() &#123;</span><br><span class="line">    getName &#x3D; function() &#123; alert(1); &#125;</span><br><span class="line">    return this;</span><br><span class="line">&#125;</span><br><span class="line">Foo.getName &#x3D; function() &#123; alert(2); &#125;</span><br><span class="line">Foo.prototype.getName &#x3D; function() &#123; alert(3); &#125;</span><br><span class="line">var getName &#x3D; function() &#123; alert(4); &#125;</span><br><span class="line">function getName() &#123; alert(5); &#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 请写出一下输出结果</span><br><span class="line">Foo.getName();</span><br><span class="line">getName();</span><br><span class="line">Foo().getName();</span><br><span class="line">getName();</span><br><span class="line">new Foo.getName();</span><br><span class="line">new Foo().getName();</span><br><span class="line">new new Foo().getName();</span><br></pre></td></tr></table></figure>
-<h4 id="Foo-getName"><a href="#Foo-getName" class="headerlink" title="Foo.getName();"></a>Foo.getName();</h4><p>让我们来分析下，<br>首先定义了一个 Foo 函数，<br>之后为Foo创建了一个叫 getName 的静态属性并赋值一个匿名函数，<br>之后为Foo的原型对象新创建了一个叫 getName 的匿名函数。<br>创建了一个名为 getName 函数表达式，<br>声明了一个 getName 函数。</p>
+
+<h4 id="Foo-getName"><a href="#Foo-getName" class="headerlink" title="Foo.getName();"></a>Foo.getName();</h4><p>让我们来分析下，<br>首先定义了一个 Foo 函数，<br>之后为 Foo 创建了一个叫 getName 的静态属性并赋值一个匿名函数，<br>之后为 Foo 的原型对象新创建了一个叫 getName 的匿名函数。<br>创建了一个名为 getName 函数表达式，<br>声明了一个 getName 函数。</p>
 <p>第一问，Foo 函数也是对象，所以自然访问的就是函数上的静态属性，即<code>Foo.getName = function() { alert(2); }</code>;</p>
 <p>以下例子用来加深理解</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function User(name) &#123;</span><br><span class="line">    var name &#x3D; name; &#x2F;&#x2F; 私有属性</span><br><span class="line">    this.name &#x3D; name; &#x2F;&#x2F; 公开属性</span><br><span class="line">    function getName() &#123; &#x2F;&#x2F; 私有方法</span><br><span class="line">        alert(1);</span><br><span class="line">        console.log(this);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">User.prototype.getName &#x3D; function() &#123; &#x2F;&#x2F; 公有方法</span><br><span class="line">    alert(2);</span><br><span class="line">&#125;</span><br><span class="line">User.name &#x3D; &#39;user&#39;; &#x2F;&#x2F; 静态属性</span><br><span class="line">User.getName &#x3D; function() &#123; &#x2F;&#x2F; 静态方法</span><br><span class="line">    alert(3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -260,12 +265,13 @@
 <h5 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 函数声明</span><br><span class="line">function test() &#123;</span><br><span class="line">    alert(1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h5 id="函数表达式"><a href="#函数表达式" class="headerlink" title="函数表达式"></a>函数表达式</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 函数表达式</span><br><span class="line">var test &#x3D; function () &#123;</span><br><span class="line">    alert(2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>先看下面这个经典问题，在一个程序里面同时用函数声明和函数表达式定义一个名为 getName 的函数</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">getName(); &#x2F;&#x2F; oaoafly</span><br><span class="line">var getName &#x3D; function() &#123;</span><br><span class="line">    console.log(&#39;wscat&#39;);</span><br><span class="line">&#125;</span><br><span class="line">getName(); &#x2F;&#x2F; wscat</span><br><span class="line">function getName() &#123;</span><br><span class="line">    console.log(&#39;oaoafly&#39;);</span><br><span class="line">&#125;</span><br><span class="line">getName(); &#x2F;&#x2F; wscat</span><br></pre></td></tr></table></figure>
 
-<p>上面的代码看起来很类似，但实际上，JavaScript函数上的一个“缺陷”就体现在JavaScript两种类型的函数定义上。</p>
+<p>上面的代码看起来很类似，但实际上，JavaScript 函数上的一个“缺陷”就体现在 JavaScript 两种类型的函数定义上。</p>
 <ul>
-<li><strong>JavaScript解释器中存在一种变量声明被提升的机制，也就是说函数声明会被提升到作用域的最前面，即使写代码的时候卸载最后面，也还是会被提升至最前面</strong></li>
+<li><strong>JavaScript 解释器中存在一种变量声明被提升的机制，也就是说函数声明会被提升到作用域的最前面，即使写代码的时候卸载最后面，也还是会被提升至最前面</strong></li>
 <li><strong>而用函数表达式创建的函数是在运行时进行赋值，且要等到表达式赋值完成后才调用</strong></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var getName; &#x2F;&#x2F; 变量被提升，此时为 undefined</span><br><span class="line"></span><br><span class="line">getName(); &#x2F;&#x2F; oaoafly 函数被提升  这里受函数声明的影响，虽然函数声明在最后，但是被提升到最前面来了</span><br><span class="line">var getName &#x3D; function() &#123;</span><br><span class="line">    console.log(&#39;wscat&#39;);</span><br><span class="line">&#125;</span><br><span class="line">getName(); &#x2F;&#x2F; wscat  函数表达式此时才被赋值并覆盖函数声明的定义</span><br><span class="line">function getName() &#123;</span><br><span class="line">    console.log(oaoafly);</span><br><span class="line">&#125;</span><br><span class="line">getName(); &#x2F;&#x2F; wscat  这里就执行了函数表达式的值</span><br></pre></td></tr></table></figure>
@@ -274,13 +280,445 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var getName;</span><br><span class="line">console.log(getName); &#x2F;&#x2F; undefined</span><br><span class="line">getName(); &#x2F;&#x2F; Uncaught TypeError: getName is not a function</span><br><span class="line">var getName &#x3D; function() &#123;</span><br><span class="line">    console.log(&#39;wscat&#39;);</span><br><span class="line">&#125;</span><br><span class="line">getName(); &#x2F;&#x2F; wscat</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var getName;</span><br><span class="line">console.log(getName); &#x2F;&#x2F; function getName() &#123; console.log(&#39;oaoafly&#39;); &#125;</span><br><span class="line">getName(); &#x2F;&#x2F; oaoafly</span><br><span class="line">function getName() &#123;</span><br><span class="line">    console.log(&#39;oaoafly&#39;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个区别看似微不足道，但在某些情况下确实是一个难以察觉并且“致命”的陷阱。出现这个陷阱的本质原因体现在这两种类型在函数提升和运行时机（解析时/运行时）上的差异。<br>当然我们给一个总结：JavaScript中<strong>函数声明</strong>和<strong>函数表达式</strong>是存在区别的，<strong>函数声明</strong>在JavaScript解析时，进行函数提升，因此在同一个作用域内，不管函数声明在哪里定义，该函数都可以进行调用。而<strong>函数表达式</strong>的值是在JavaScript运行时确定，并且在表达式赋值完成后，该函数才能调用。</p>
-<p>所以第二问 <code>getName();</code> 答案为4，5的函数声明被 4 的函数表达式覆盖了。</p>
+
+<p>这个区别看似微不足道，但在某些情况下确实是一个难以察觉并且“致命”的陷阱。出现这个陷阱的本质原因体现在这两种类型在函数提升和运行时机（解析时/运行时）上的差异。<br>当然我们给一个总结：JavaScript 中<strong>函数声明</strong>和<strong>函数表达式</strong>是存在区别的，<strong>函数声明</strong>在 JavaScript 解析时，进行函数提升，因此在同一个作用域内，不管函数声明在哪里定义，该函数都可以进行调用。而<strong>函数表达式</strong>的值是在 JavaScript 运行时确定，并且在表达式赋值完成后，该函数才能调用。</p>
+<p>所以第二问 <code>getName();</code> 答案为 4，5 的函数声明被 4 的函数表达式覆盖了。</p>
 <h4 id="Foo-getName-1"><a href="#Foo-getName-1" class="headerlink" title="Foo().getName();"></a>Foo().getName();</h4><p><code>Foo().getName();</code> 先执行了 Foo 函数，然后调用 Foo 函数的返回值（this）对象的 getName 属性函数。<br>Foo 函数的第一句 <code>getName = function() { alert(1); };</code> 是一句函数赋值语句，注意它没有 var 声明，所以先向当前 Foo 函数作用域中寻找 getName 变量，没有。再向当前函数作用域上层，即外层作用域内寻找是否含有 getName 变量，找到了，也就是第二问 <code>var getName = function() { alert(4); };</code>，将此变量的值赋值为 <code>function() { alert(1); };</code>。<br>此处实际上是将外层作用域内的 getName 函数修改了。</p>
 <blockquote>
 <p>注意：此处若依然没有找到会一直向上查找到 window 对象，若 window 对象中也没有 getName 属性，就在 window 对象中创建一个 getName 变量并赋值 <code>function() { alert(1); };</code>。</p>
 </blockquote>
 <p>之后 Foo 函数的返回值是 this。this 的指向是由所在函数的调用方式决定的。而此处是直接调用方式，this 指向 window 对象，相当于执行 window.getName()，而 window 中的 getName 已经被修改为 <code>function() { alert(1); };</code>，所以最终输出 1。</p>
+<p>此处考察了两个知识点，一个是<strong>变量作用域问题</strong>，一个是<strong>this 指向问题</strong>。我们利用下面的代码来回顾一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var name &#x3D; &#39;wscats&#39;; &#x2F;&#x2F; 全局变量</span><br><span class="line">window.name &#x3D; &#39;wscats&#39;; &#x2F;&#x2F; 全局变量</span><br><span class="line">function getName() &#123;</span><br><span class="line">    name &#x3D; &#39;oaoafly&#39;; &#x2F;&#x2F; 没有用 var 声明，所以是全局变量，当前作用域没有 name</span><br><span class="line">    var privateName &#x3D; &#39;stacsw&#39;;</span><br><span class="line">    return function() &#123;</span><br><span class="line">        console.log(this); &#x2F;&#x2F; window</span><br><span class="line">        return privateName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var getPrivate &#x3D; getName(&#39;Hello&#39;); &#x2F;&#x2F; 当前传参是局部变量，但函数中没有接受这个参数</span><br><span class="line">console.log(name); &#x2F;&#x2F; oaoafly</span><br><span class="line">console.log(getPrivate()); &#x2F;&#x2F; stacsw</span><br></pre></td></tr></table></figure>
+
+<p>因为 JavaScript 没有块级作用域，但是函数是能产生一个作用域的，函数内部不同定义值的方法会直接或者间接影响到全局或者局部变量，函数内部的私有变量可以用闭包获取。<br>而关于 this，this 的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定 this 到底指向谁，实际上 this 最终指向的是那个调用它的对象。<br>所以第三问 <code>Foo().getName();</code> 中实际就是 window 在调用 Foo() 函数，所以 this 的指向就是 window。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">window.Foo().getName();</span><br><span class="line">&#x2F;&#x2F; -&gt; window.getName();</span><br></pre></td></tr></table></figure>
+
+<h4 id="getName-1"><a href="#getName-1" class="headerlink" title="getName();"></a>getName();</h4><p>直接调用 getName 函数，相当于 window.getName()，因为这个变量已经被 Foo 函数执行时修改了，所以结果和第三问 <code>Foo().getName();</code> 相同，为 1。也就是说 Foo 执行后把全局的 getName 函数给重写了一次。</p>
+<h4 id="new-Foo-getName"><a href="#new-Foo-getName" class="headerlink" title="new Foo.getName();"></a>new Foo.getName();</h4><p>第五问 <code>new Foo.getName();</code> 此处考察的是 JavaScript 的运算符优先级问题，这个还是挺难的，我当时看到这都懵了，没见过这么写的啊…<br>下面是 JavaScript 运算符的优先级表格，从高(20)到低(1)排列。可参见<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvT3BlcmF0b3JzL09wZXJhdG9yX1ByZWNlZGVuY2U=" title="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence">MDN 运算符优先级<i class="fa fa-external-link"></i></span></p>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>运算类型</th>
+<th>关联性</th>
+<th>运算符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>20</td>
+<td>圆括号</td>
+<td>n/a(不相关)</td>
+<td><code>( ... )</code></td>
+</tr>
+<tr>
+<td>19</td>
+<td>成员访问</td>
+<td>从左到右</td>
+<td><code>... . ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>需要计算的成员访问</td>
+<td>从左到右</td>
+<td><code>... [ ... ]</code></td>
+</tr>
+<tr>
+<td></td>
+<td>new(带参数列表)</td>
+<td>n/a</td>
+<td><code>new ... ( ... )</code></td>
+</tr>
+<tr>
+<td></td>
+<td>函数调用</td>
+<td>从左到右</td>
+<td><code>... ( ... )</code></td>
+</tr>
+<tr>
+<td></td>
+<td>可选链</td>
+<td>从左到右</td>
+<td><code>?.</code></td>
+</tr>
+<tr>
+<td>18</td>
+<td>new(无参数列表)</td>
+<td>从右到左</td>
+<td><code>new ...</code></td>
+</tr>
+<tr>
+<td>17</td>
+<td>后置递增(运算符在后)</td>
+<td>n/a</td>
+<td><code>... ++</code></td>
+</tr>
+<tr>
+<td></td>
+<td>后置递减(运算符在后)</td>
+<td></td>
+<td><code>... --</code></td>
+</tr>
+<tr>
+<td>16</td>
+<td>逻辑非</td>
+<td>从右到左</td>
+<td><code>! ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>按位非</td>
+<td></td>
+<td><code>~ ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>一元加法</td>
+<td></td>
+<td><code>+ ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>一元减法</td>
+<td></td>
+<td><code>- ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>前置递增</td>
+<td></td>
+<td><code>++ ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>前置递减</td>
+<td></td>
+<td><code>-- ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>typeof</td>
+<td></td>
+<td><code>typeof ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>void</td>
+<td></td>
+<td><code>void ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>delete</td>
+<td></td>
+<td><code>delete ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>await</td>
+<td></td>
+<td><code>await ...</code></td>
+</tr>
+<tr>
+<td>15</td>
+<td>幂</td>
+<td>从右到左</td>
+<td><code>... ** ...</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td>乘法</td>
+<td>从左到右</td>
+<td><code>... * ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>除法</td>
+<td></td>
+<td><code>... / ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>取模</td>
+<td></td>
+<td><code>... % ...</code></td>
+</tr>
+<tr>
+<td>13</td>
+<td>加法</td>
+<td>从左到右</td>
+<td><code>... + ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>减法</td>
+<td></td>
+<td><code>... - ...</code></td>
+</tr>
+<tr>
+<td>12</td>
+<td>按位左移</td>
+<td>从左到右</td>
+<td><code>... &lt;&lt; ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>按位右移</td>
+<td></td>
+<td><code>... &gt;&gt; ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>无符号右移</td>
+<td></td>
+<td><code>... &gt;&gt;&gt; ...</code></td>
+</tr>
+<tr>
+<td>11</td>
+<td>小于</td>
+<td>从左到右</td>
+<td><code>... &lt; ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>小于等于</td>
+<td></td>
+<td><code>... &lt;= ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>大于</td>
+<td></td>
+<td><code>... &gt; ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>大于等于</td>
+<td></td>
+<td><code>... &gt;= ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>in</td>
+<td></td>
+<td><code>... in ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>instanceof</td>
+<td></td>
+<td><code>... instanceof ...</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td>等号</td>
+<td>从左到右</td>
+<td><code>... == ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>非等号</td>
+<td></td>
+<td><code>... != ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>全等号</td>
+<td></td>
+<td><code>... === ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>非全等号</td>
+<td></td>
+<td><code>... !== ...</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td>按位与</td>
+<td>从左到右</td>
+<td><code>... &amp; ...</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td>按位异或</td>
+<td>从左到右</td>
+<td><code>... ^ ...</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td>按位或</td>
+<td>从左到右</td>
+<td><code>... | ...</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>逻辑与</td>
+<td>从左到右</td>
+<td><code>... &amp;&amp; ...</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>逻辑或</td>
+<td>从左到右</td>
+<td><code>... || ...</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>条件运算符</td>
+<td>从右到左</td>
+<td><code>... ? ... : ...</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>赋值</td>
+<td>从右到左</td>
+<td><code>... = ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><code>... += ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><code>... -= ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><code>... *= ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><code>... /= ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><code>... %= ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><code>... &lt;&lt;= ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><code>... &gt;&gt;= ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><code>... &gt;&gt;&gt;= ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><code>... &amp;= ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><code>... ^= ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><code>... |= ...</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>yield</td>
+<td>从右到左</td>
+<td><code>yield ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>yield*</td>
+<td></td>
+<td><code>yield* ...</code></td>
+</tr>
+<tr>
+<td>1</td>
+<td>展开运算符</td>
+<td>n/a</td>
+<td><code>...</code> …</td>
+</tr>
+<tr>
+<td>0</td>
+<td>逗号</td>
+<td>从左到右</td>
+<td><code>... , ...</code></td>
+</tr>
+</tbody></table>
+<p>从上面优先级表中第 19 和第 18 中可以看出关于 new 的优先级，<code>.成员访问</code> 和 <code>new(带参数列表)</code> 和 <code>函数调用</code> 同级，比 <code>new(无参数列表)</code> 高。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">new Foo.getName();</span><br><span class="line">&#x2F;&#x2F; -&gt; new (Foo.getName)();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>点的优先级(19)比 <code>new(无参数列表)</code> (18) 优先级高</li>
+<li>当点运算完后又因为有个括号 <code>()</code>，此时就是变成 <code>new有参数列表</code> (19)，所以直接执行 <code>new</code>，当然也可能有朋友会有疑问为什么遇到 <code>()</code> 不函数调用再 <code>new</code> 呢，那是因为 <code>函数调用</code> (18)比 <code>new有参数列表</code> (19)优先级低。</li>
+</ul>
+<blockquote>
+<p><code>.成员访问</code>(19) &gt; <code>函数调用</code>(19) &gt; <code>new(无参数列表)</code>(18)</p>
+</blockquote>
+<p>综上所述，第五问 <code>new Foo.getName();</code> 答案为 2。</p>
+<h4 id="new-Foo-getName-1"><a href="#new-Foo-getName-1" class="headerlink" title="new Foo().getName();"></a>new Foo().getName();</h4><p>第六问 <code>new Foo().getName();</code>，比第五问 <code>new Foo.getName();</code> 出多了一个 <code>()</code>，优先级也就发生了变化</p>
+<blockquote>
+<p>new Foo().getName();<br>// -&gt; (new Foo()).getName();</p>
+</blockquote>
+<p>根据优先级表，首先是 <code>new(有参数列表)</code>(19)跟 <code>点</code> 和 <code>函数调用</code> 的优先级是同级，同级按照从左向右的执行顺序，所以先执行 <code>new(有参数列表)</code>(19)再执行 <code>点</code> 的优先级(19)，最后再 <code>函数调用</code> (19)。</p>
+<blockquote>
+<p><code>new(有参数列表)</code>(19) &gt; <code>.成员访问</code>(19) &gt; <code>函数调用</code>(19)</p>
+</blockquote>
+<p>这里还有个小知识点，Foo 作为构造函数有返回值，这里说下 JavaScript 中构造函数返回值的问题。</p>
+<h5 id="构造函数的返回值"><a href="#构造函数的返回值" class="headerlink" title="构造函数的返回值"></a>构造函数的返回值</h5><p>在传统语言中，构造函数不应该有返回值，实际执行的返回值就是此构造函数的实例化对象。<br>而在 JavaScript 中的构造函数可以有返回值也可以没有。</p>
+<ol>
+<li>没有返回值则按照其他语言一样返回实例化对象。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function Foo(name) &#123;</span><br><span class="line">    this.name &#x3D; name</span><br><span class="line">&#125;</span><br><span class="line">console.log(new Foo(&#39;wscat&#39;));</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://pic.downk.cc/item/5e832ef7504f4bcb0433479c.png" alt=""></p>
+<ol start="2">
+<li>若有返回值，则检查其返回值是否为引用类型。如果是非引用类型，如基本类型(String, Number, Boolean, Undefined, Null, Symbol)则与无返回值相同，返回其实例化对象。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function Foo(name) &#123;</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">    return 200;</span><br><span class="line">&#125;</span><br><span class="line">console.log(new Foo(&#39;wscat&#39;));</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://pic.downk.cc/item/5e832ff1504f4bcb043409d6.png" alt=""></p>
+<ol start="3">
+<li>若返回值是引用类型，则返回这个引用类型。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function Foo(name) &#123;</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">    return &#123;</span><br><span class="line">        age: 16</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(new Foo(&#39;wscat&#39;));</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://pic.downk.cc/item/5e83305f504f4bcb04346114.png" alt=""></p>
+<p>原题中，由于返回的是 this，而 this 在构造函数中本来就代表当前实例化对象，所以 Foo 函数返回实例化对象。<br>之后调用实例化对象的 getName 函数，因为在 Foo 构造函数中没有为实例化对象添加任何属性，所以在当前对象的原型对象中寻找 getName 函数。<br>当然这里再拓展个题外话，如果构造函数和原型链都有相同的方法，如下面的代码，那么默认拿构造函数的公有方法而不是原型链上的方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function Foo(name) &#123;</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">    this.getName &#x3D; function() &#123;</span><br><span class="line">        return this.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Foo.prototype.name &#x3D; &#39;oaoafly&#39;;</span><br><span class="line">Foo.prototype.getName &#x3D; function() &#123;</span><br><span class="line">    return &#39;oaoafly&#39;;</span><br><span class="line">&#125;</span><br><span class="line">console.log((new Foo(&#39;wscat&#39;)).name); &#x2F;&#x2F; wscat</span><br><span class="line">console.log((new Foo(&#39;wscat&#39;)).getName()); &#x2F;&#x2F; wscat</span><br></pre></td></tr></table></figure>
+
+<h4 id="new-new-Foo-getName"><a href="#new-new-Foo-getName" class="headerlink" title="new new Foo().getName();"></a>new new Foo().getName();</h4><p>第七问 <code>new new Foo().getName();</code> 同样是运算符优先级问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">new new Foo().getName();</span><br><span class="line">&#x2F;&#x2F; -&gt; new ((new Foo()).getName)();</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>new(有参数列表)</code>(19) &gt; <code>.成员访问</code>(19) &gt; <code>new(有参数列表)</code>(19)</p>
+</blockquote>
+<p>先初始化 Foo 的实例化对象，然后将其原型上的 getName 函数作为构造函数再次 new，所以最终结果为 3。</p>
+<h4 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function Foo() &#123;</span><br><span class="line">    getName &#x3D; function () &#123; alert (1); &#125;;</span><br><span class="line">    return this;</span><br><span class="line">&#125;</span><br><span class="line">Foo.getName &#x3D; function () &#123; alert (2);&#125;;</span><br><span class="line">Foo.prototype.getName &#x3D; function () &#123; alert (3);&#125;;</span><br><span class="line">var getName &#x3D; function () &#123; alert (4);&#125;;</span><br><span class="line">function getName() &#123; alert (5);&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;答案：</span><br><span class="line">Foo.getName(); &#x2F;&#x2F; 2</span><br><span class="line">getName(); &#x2F;&#x2F; 4</span><br><span class="line">Foo().getName(); &#x2F;&#x2F; 1</span><br><span class="line">getName(); &#x2F;&#x2F; 1</span><br><span class="line">new Foo.getName(); &#x2F;&#x2F; 2</span><br><span class="line">new Foo().getName(); &#x2F;&#x2F; 3</span><br><span class="line">new new Foo().getName(); &#x2F;&#x2F; 3</span><br></pre></td></tr></table></figure>
+
+<h4 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h4><p>增加一下难度，在 Foo 函数里面多加一个公有方法 getName。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">function Foo() &#123;</span><br><span class="line">    this.getName &#x3D; function() &#123;</span><br><span class="line">        console.log(3);</span><br><span class="line">        return &#123;</span><br><span class="line">            getName: getName &#x2F;&#x2F;这个就是第六问中涉及的构造函数的返回值问题</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;; </span><br><span class="line">    &#x2F;&#x2F;这个就是第六问中涉及到的，JS构造函数公有方法和原型链方法的优先级</span><br><span class="line">    getName &#x3D; function() &#123;</span><br><span class="line">        console.log(1);</span><br><span class="line">    &#125;;</span><br><span class="line">    return this</span><br><span class="line">&#125;</span><br><span class="line">Foo.getName &#x3D; function() &#123;</span><br><span class="line">    console.log(2);</span><br><span class="line">&#125;;</span><br><span class="line">Foo.prototype.getName &#x3D; function() &#123;</span><br><span class="line">    console.log(6);</span><br><span class="line">&#125;;</span><br><span class="line">var getName &#x3D; function() &#123;</span><br><span class="line">    console.log(4);</span><br><span class="line">&#125;;</span><br><span class="line">function getName() &#123;</span><br><span class="line">    console.log(5);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;答案：</span><br><span class="line">Foo.getName(); &#x2F;&#x2F; 2</span><br><span class="line">getName(); &#x2F;&#x2F; 4</span><br><span class="line">console.log(Foo()) &#x2F;&#x2F; window</span><br><span class="line">Foo().getName(); &#x2F;&#x2F; 1</span><br><span class="line">getName(); &#x2F;&#x2F; 1</span><br><span class="line">new Foo.getName(); &#x2F;&#x2F; 2</span><br><span class="line">new Foo().getName(); &#x2F;&#x2F; 3</span><br><span class="line">&#x2F;&#x2F;多了一问</span><br><span class="line">new Foo().getName().getName(); &#x2F;&#x2F; 3 1</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -381,7 +819,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Foo-getName"><span class="nav-number">2.</span> <span class="nav-text">Foo.getName();</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getName"><span class="nav-number">3.</span> <span class="nav-text">getName();</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#函数声明"><span class="nav-number">3.1.</span> <span class="nav-text">函数声明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#函数表达式"><span class="nav-number">3.2.</span> <span class="nav-text">函数表达式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Foo-getName-1"><span class="nav-number">4.</span> <span class="nav-text">Foo().getName();</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Foo-getName"><span class="nav-number">2.</span> <span class="nav-text">Foo.getName();</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getName"><span class="nav-number">3.</span> <span class="nav-text">getName();</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#函数声明"><span class="nav-number">3.1.</span> <span class="nav-text">函数声明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#函数表达式"><span class="nav-number">3.2.</span> <span class="nav-text">函数表达式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Foo-getName-1"><span class="nav-number">4.</span> <span class="nav-text">Foo().getName();</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getName-1"><span class="nav-number">5.</span> <span class="nav-text">getName();</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#new-Foo-getName"><span class="nav-number">6.</span> <span class="nav-text">new Foo.getName();</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#new-Foo-getName-1"><span class="nav-number">7.</span> <span class="nav-text">new Foo().getName();</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#构造函数的返回值"><span class="nav-number">7.1.</span> <span class="nav-text">构造函数的返回值</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#new-new-Foo-getName"><span class="nav-number">8.</span> <span class="nav-text">new new Foo().getName();</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#答案"><span class="nav-number">9.</span> <span class="nav-text">答案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后续"><span class="nav-number">10.</span> <span class="nav-text">后续</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -445,13 +883,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">2k</span>
+    <span title="站点总字数">4k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1 分钟</span>
+    <span title="站点阅读时长">4 分钟</span>
 </div>
 
         
