@@ -18,8 +18,8 @@ after_script:
   - cd ../
   - mv .deploy_git/.git/ ./public/
   - cd ./public
-  - git config user.name "your name"
-  - git config user.email "your email"
+  - git config user.name "samoz"
+  - git config user.email "15176981781@163.com"
   - git add .
   - git commit -m "Travis CI Auto Builder"
   - git push --force --quiet "https://${Travis}@${GH_REF}" master:master
