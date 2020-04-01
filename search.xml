@@ -3,13 +3,56 @@
   <entry>
     <title>关于JavaScript的变量提升</title>
     <url>/2020/03/30/%E5%85%B3%E4%BA%8EJavaScript%E7%9A%84%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87/</url>
-    <content><![CDATA[<p>正在编写…</p>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var v &#x3D; &#39;hello world&#39;;</span><br><span class="line">alert(v);</span><br></pre></td></tr></table></figure>
+
+<p>弹出 Hello World</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var v &#x3D; &#39;hello world&#39;;</span><br><span class="line">(function() &#123;</span><br><span class="line">    alert(v);</span><br><span class="line">    var v &#x3D; &#39;I love you&#39;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>也是弹出 hello world</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var v &#x3D; &#39;hello world&#39;;</span><br><span class="line">(function() &#123;</span><br><span class="line">    alert(v);</span><br><span class="line">    var v &#x3D; &#39;i love you&#39;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>弹出 undefined</p>
+<p>这里隐藏了一个陷阱，就是JavaScript中的变量提升</p>
+<p>它相当于</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var v &#x3D; &#39;hello world&#39;;</span><br><span class="line">(function() &#123;</span><br><span class="line">    var v;</span><br><span class="line">    alert(v);</span><br><span class="line">    v &#x3D; &#39;i love you&#39;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<p>变量提升，简单的理解，就是把变量提升到函数的最顶端的地方。需要说明的是，变量提升只是提升变量的声明，并不是把赋值也提升上来，没有赋值的变量初始值是undefined。所以上面就出现了声明undefined的var，因为赋值在后面，声明提升在了前面。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">    if (false) &#123;</span><br><span class="line">        var x &#x3D; 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return;</span><br><span class="line">    var y &#x3D; 1;</span><br><span class="line">&#125;</span><br><span class="line">function foo() &#123;</span><br><span class="line">    var x, y;</span><br><span class="line">    if (false) &#123;</span><br><span class="line">        x &#x3D; 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return;</span><br><span class="line">    y &#x3D; 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>还有一点注意的是因为JavaScript是函数级作用域，只有函数才会创建新的作用域，而不像其他语言有块级作用域，例如块，就像if语句，在上面的例子中，不管会不会进入if代码块，函数声明都会提升到当前作用域的顶部，得到执行，在JavaScript中并不会创建一个新的作用域。<br>从这里我们应该体会到，当我们在写JavaScript code 的时候，我们需要把变量放到块级作用域的顶端，不然容易发生一些意想不到的错误。<br>注意：ES5只有全局作用域和函数作用域，没有块级作用域。</p>
+<p>还有一种就是函数提升</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function myTest() &#123;</span><br><span class="line">    foo();</span><br><span class="line">    function foo() &#123;</span><br><span class="line">        alert(&#39;hello world&#39;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">myTest();</span><br></pre></td></tr></table></figure>
+
+<p>弹出 ‘hello world’ // 这里函数声明提升</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function myTest() &#123;</span><br><span class="line">    foo();</span><br><span class="line">    var foo &#x3D; function() &#123;</span><br><span class="line">        alert(&#39;我不会被弹出&#39;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">myTest();</span><br></pre></td></tr></table></figure>
+
+<p>报错：foo不是函数<br>相当于</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function myTest() &#123;</span><br><span class="line">    var foo;</span><br><span class="line">    foo();</span><br><span class="line">    foo &#x3D; function() &#123;</span><br><span class="line">        alert(&#39;我不会被弹出&#39;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">myTest();</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
     <title>关于JavaScript的函数声明和函数表达式</title>
     <url>/2020/03/30/%E5%85%B3%E4%BA%8EJavaScript%E7%9A%84%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E5%92%8C%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
-    <content><![CDATA[<p>正在编写…</p>
+    <content><![CDATA[<p>JavaScript定义函数有两种类型</p>
+<h4 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function wscat(type) &#123;</span><br><span class="line">    console.log(type);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="函数表达式"><a href="#函数表达式" class="headerlink" title="函数表达式"></a>函数表达式</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var oaoafly &#x3D; function(type) &#123;</span><br><span class="line">    console.log(type);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>先看下面这个经典的问题，在一个程序里面同时用函数声明和函数表达式定义一个名为 getName 的函数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">getName(); &#x2F;&#x2F; oaoafly</span><br><span class="line">var getName &#x3D; function() &#123;</span><br><span class="line">    console.log(&#39;wscat&#39;);</span><br><span class="line">&#125;</span><br><span class="line">getName(); &#x2F;&#x2F; wscat</span><br><span class="line">function getName() &#123;</span><br><span class="line">    console.log(&#39;oaoafly&#39;);</span><br><span class="line">&#125;</span><br><span class="line">getName(); &#x2F;&#x2F; wscat</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码看起来很类似，感觉也什么太大差别。但实际上，JavaScript函数上的一个“陷阱”就体现在JavaScript两种类型的函数定义上。</p>
+<ul>
+<li>JavaScript解释器中存在一种变量声明被提升的机制，也就是说函数声明会被提升到作用域的最前面，即使写代码的时候写在最后面，也还是会被提升至最前面。</li>
+<li>用函数表达式创建的函数是在运行时进行赋值，且要等到表达式赋值完成后才能调用。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var getName; &#x2F;&#x2F; 变量被提升，此时为undefined</span><br><span class="line">getName(); &#x2F;&#x2F; oaoafly 函数声明被提升</span><br><span class="line">var getName &#x3D; function() &#123;</span><br><span class="line">    console.log(&#39;wscat&#39;);</span><br><span class="line">&#125;</span><br><span class="line">getName(); &#x2F;&#x2F; wscat 函数表达式此时才覆盖函数声明的定义</span><br><span class="line">function getName() &#123;</span><br><span class="line">    console.log(&#39;oaoafly&#39;);</span><br><span class="line">&#125;</span><br><span class="line">getName(); &#x2F;&#x2F; wscat 这里执行的是函数表达式</span><br></pre></td></tr></table></figure>
+
+<p>所以可以分解为这两个简单的问题来看清楚区别的本质</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var getName;</span><br><span class="line">console.log(getName) &#x2F;&#x2F; undefined</span><br><span class="line">getName(); &#x2F;&#x2F; Uncaught TypeError: getName is not a function</span><br><span class="line">var getName &#x3D; function() &#123;</span><br><span class="line">    console.log(&#39;wscat&#39;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var getName;</span><br><span class="line">console.log(getName); &#x2F;&#x2F; function getName() &#123; console.log(&#39;oaoafly&#39;); &#125;</span><br><span class="line">getName(); &#x2F;&#x2F; oaoafly</span><br><span class="line">function getName() &#123;</span><br><span class="line">    console.log(&#39;oaoafly&#39;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个区别看似微不足道，但在某些情况下确实是一个难以察觉并且“致命”的陷阱。出现这个陷阱的本质原因体现在这两种类型在函数提升和运行时机(解析时/运行时)上的差异。</p>
+<p>总结：JavaScript中的函数声明和函数表达式是存在区别的，函数声明在JavaScript解析时进行函数提升，因此在同一个作用域内，不管函数声明在哪里定义，该函数都可以进行调用。而函数表达式的值是在JavaScript运行时确定，并且在表达式赋值完成后，该函数才能调用。</p>
 ]]></content>
       <tags>
         <tag>JavaScript</tag>

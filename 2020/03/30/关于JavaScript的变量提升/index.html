@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="正在编写…">
+  <meta name="description" content="12var v &#x3D; &#39;hello world&#39;;alert(v);  弹出 Hello World 12345var v &#x3D; &#39;hello world&#39;;(function() &amp;#123;    alert(v);    var v &#x3D; &#39;I love you&#39;;&amp;#125;)(); 也是弹出 hello world">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于JavaScript的变量提升">
 <meta property="og:url" content="http://yoursite.com/2020/03/30/%E5%85%B3%E4%BA%8EJavaScript%E7%9A%84%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87/index.html">
 <meta property="og:site_name" content="SamoZ">
-<meta property="og:description" content="正在编写…">
+<meta property="og:description" content="12var v &#x3D; &#39;hello world&#39;;alert(v);  弹出 Hello World 12345var v &#x3D; &#39;hello world&#39;;(function() &amp;#123;    alert(v);    var v &#x3D; &#39;I love you&#39;;&amp;#125;)(); 也是弹出 hello world">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-30T14:20:29.000Z">
 <meta property="article:modified_time" content="2020-03-30T14:20:29.000Z">
@@ -234,7 +234,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5</span>
+              <span>472</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -253,7 +253,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>正在编写…</p>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var v &#x3D; &#39;hello world&#39;;</span><br><span class="line">alert(v);</span><br></pre></td></tr></table></figure>
+
+<p>弹出 Hello World</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var v &#x3D; &#39;hello world&#39;;</span><br><span class="line">(function() &#123;</span><br><span class="line">    alert(v);</span><br><span class="line">    var v &#x3D; &#39;I love you&#39;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>也是弹出 hello world</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var v &#x3D; &#39;hello world&#39;;</span><br><span class="line">(function() &#123;</span><br><span class="line">    alert(v);</span><br><span class="line">    var v &#x3D; &#39;i love you&#39;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>弹出 undefined</p>
+<p>这里隐藏了一个陷阱，就是JavaScript中的变量提升</p>
+<p>它相当于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var v &#x3D; &#39;hello world&#39;;</span><br><span class="line">(function() &#123;</span><br><span class="line">    var v;</span><br><span class="line">    alert(v);</span><br><span class="line">    v &#x3D; &#39;i love you&#39;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<p>变量提升，简单的理解，就是把变量提升到函数的最顶端的地方。需要说明的是，变量提升只是提升变量的声明，并不是把赋值也提升上来，没有赋值的变量初始值是undefined。所以上面就出现了声明undefined的var，因为赋值在后面，声明提升在了前面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">    if (false) &#123;</span><br><span class="line">        var x &#x3D; 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return;</span><br><span class="line">    var y &#x3D; 1;</span><br><span class="line">&#125;</span><br><span class="line">function foo() &#123;</span><br><span class="line">    var x, y;</span><br><span class="line">    if (false) &#123;</span><br><span class="line">        x &#x3D; 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return;</span><br><span class="line">    y &#x3D; 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>还有一点注意的是因为JavaScript是函数级作用域，只有函数才会创建新的作用域，而不像其他语言有块级作用域，例如块，就像if语句，在上面的例子中，不管会不会进入if代码块，函数声明都会提升到当前作用域的顶部，得到执行，在JavaScript中并不会创建一个新的作用域。<br>从这里我们应该体会到，当我们在写JavaScript code 的时候，我们需要把变量放到块级作用域的顶端，不然容易发生一些意想不到的错误。<br>注意：ES5只有全局作用域和函数作用域，没有块级作用域。</p>
+<p>还有一种就是函数提升</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function myTest() &#123;</span><br><span class="line">    foo();</span><br><span class="line">    function foo() &#123;</span><br><span class="line">        alert(&#39;hello world&#39;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">myTest();</span><br></pre></td></tr></table></figure>
+
+<p>弹出 ‘hello world’ // 这里函数声明提升</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function myTest() &#123;</span><br><span class="line">    foo();</span><br><span class="line">    var foo &#x3D; function() &#123;</span><br><span class="line">        alert(&#39;我不会被弹出&#39;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">myTest();</span><br></pre></td></tr></table></figure>
+
+<p>报错：foo不是函数<br>相当于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function myTest() &#123;</span><br><span class="line">    var foo;</span><br><span class="line">    foo();</span><br><span class="line">    foo &#x3D; function() &#123;</span><br><span class="line">        alert(&#39;我不会被弹出&#39;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">myTest();</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -410,13 +432,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">4k</span>
+    <span title="站点总字数">5k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4 分钟</span>
+    <span title="站点阅读时长">5 分钟</span>
 </div>
 
         
