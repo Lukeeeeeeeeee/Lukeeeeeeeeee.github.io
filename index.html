@@ -481,14 +481,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -500,8 +500,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>正在编写…</p>
-
+          <h4 id="Promise-声明"><a href="#Promise-声明" class="headerlink" title="Promise 声明"></a>Promise 声明</h4><p>首先，Promise 肯定是一个类，我们用 class 来声明。</p>
+<ul>
+<li>由于 <code>new Promise((resolve, reject) =&gt; {})</code>，所以传入一个参数(函数)，Promise/A+ 里叫他 executor (奇怪，我找了半天没找到…)，传入就行了。</li>
+<li>executor 里面有两个参数，一个叫 resolve（成功），一个叫 reject（失败）。</li>
+<li>由于 resolve 和 reject 可执行，所以都是函数，我们用 let 声明。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Promise &#123;</span><br><span class="line">    &#x2F;&#x2F; 构造器</span><br><span class="line">    constructor(executor) &#123;</span><br><span class="line">        &#x2F;&#x2F; 成功</span><br><span class="line">        let resolve &#x3D; () &#x3D;&gt; &#123;&#125;;</span><br><span class="line">        &#x2F;&#x2F; 失败</span><br><span class="line">        let reject &#x3D; () &#x3D;&gt; &#123;&#125;;</span><br><span class="line">        &#x2F;&#x2F; 立即执行</span><br><span class="line">        executor(resolve, reject);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/03/30/%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0Promise/#more" rel="contents">
@@ -641,13 +646,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">5k</span>
+    <span title="站点总字数">7k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5 分钟</span>
+    <span title="站点阅读时长">7 分钟</span>
 </div>
 
         
