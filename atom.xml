@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>SamoZ</title>
+  <title>前端搬运工</title>
   
-  <subtitle>菜鸟前端, 码农</subtitle>
+  <subtitle>一个没有感情的前端搬运工</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-30T14:20:29.000Z</updated>
+  <updated>2020-04-02T06:16:29.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Cookie 和 SameSite 属性</title>
+    <link href="http://yoursite.com/2020/04/02/Cookie-%E5%92%8C-SameSite-%E5%B1%9E%E6%80%A7/"/>
+    <id>http://yoursite.com/2020/04/02/Cookie-%E5%92%8C-SameSite-%E5%B1%9E%E6%80%A7/</id>
+    <published>2020-04-02T06:16:29.000Z</published>
+    <updated>2020-04-02T06:16:29.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;HTTP&quot;&gt;&lt;a href=&quot;#HTTP&quot; class=&quot;headerlink&quot; title=&quot;HTTP&quot;&gt;&lt;/a&gt;HTTP&lt;/h4&gt;&lt;p&gt;一般我们都会说“HTTP 是一个无状态的协议”，不过要注意这里的 HTTP 其实是指 HTTP 1.x，而所谓无状态协议，简单的理解就是即使同一个客户端连续两次发送请求给服务器，服务器也识别不出这是同一个客户端发送的请求，这导致的问题就比如你加入了一个商品到购物车中，但是因为识别不出时同一个客户端，刷新一下页面就没有了…&lt;/p&gt;
+&lt;h4 id=&quot;Cookie&quot;&gt;&lt;a href=&quot;#Cookie&quot; class=&quot;headerlink&quot; title=&quot;Cookie&quot;&gt;&lt;/a&gt;Cookie&lt;/h4&gt;&lt;p&gt;为了解决 HTTP 无状态导致的问题，后来出现了 Cookie。不过这样说可能会让你产生一些误解，首先无状态并不是不好，有优点，但也会导致一些问题。而 Cookie 的存在也不是为了解决通讯协议无状态的问题，只是为了解决客户端与服务器会话状态的问题，这个状态是指后端服务的状态而非通讯协议的状态。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="浏览器" scheme="http://yoursite.com/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>关于JavaScript的变量提升</title>
