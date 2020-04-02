@@ -4,6 +4,10 @@ date: 2020-03-30 20:23:01
 tags: [Promise]
 ---
 
+#### Promise/A+ 规范
+
+[Promise/A+ 规范](http://malcolmyu.github.io/malnote/2015/06/12/Promises-A-Plus/)
+
 #### Promise 声明
 
 首先，Promise 肯定是一个类，我们用 class 来声明。
