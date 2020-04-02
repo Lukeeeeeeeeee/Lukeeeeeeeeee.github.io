@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: SamoZ
-subtitle: '菜鸟前端, 码农'
-description: '前端分享, 热爱前端'
+title: 前端搬运工
+subtitle: '一个没有感情的前端搬运工'
+description: '菜鸟前端, 码农'
 keywords: 前端, JavaScript, HTML5, CSS3, Vue, Angular, React, 博客, Webpack
 author: SamoZ
 language: zh-CN
