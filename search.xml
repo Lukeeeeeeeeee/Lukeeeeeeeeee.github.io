@@ -536,7 +536,8 @@
   <entry>
     <title>手动实现Promise</title>
     <url>/2020/03/30/%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0Promise/</url>
-    <content><![CDATA[<h4 id="Promise-声明"><a href="#Promise-声明" class="headerlink" title="Promise 声明"></a>Promise 声明</h4><p>首先，Promise 肯定是一个类，我们用 class 来声明。</p>
+    <content><![CDATA[<h4 id="Promise-A-规范"><a href="#Promise-A-规范" class="headerlink" title="Promise/A+ 规范"></a>Promise/A+ 规范</h4><p><span class="exturl" data-url="aHR0cDovL21hbGNvbG15dS5naXRodWIuaW8vbWFsbm90ZS8yMDE1LzA2LzEyL1Byb21pc2VzLUEtUGx1cy8=" title="http://malcolmyu.github.io/malnote/2015/06/12/Promises-A-Plus/">Promise/A+ 规范<i class="fa fa-external-link"></i></span></p>
+<h4 id="Promise-声明"><a href="#Promise-声明" class="headerlink" title="Promise 声明"></a>Promise 声明</h4><p>首先，Promise 肯定是一个类，我们用 class 来声明。</p>
 <ul>
 <li>由于 <code>new Promise((resolve, reject) =&gt; {})</code>，所以传入一个参数(函数)，Promise/A+ 里叫他 executor (奇怪，我找了半天没找到…)，传入就行了。</li>
 <li>executor 里面有两个参数，一个叫 resolve（成功），一个叫 reject（失败）。</li>

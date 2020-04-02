@@ -499,13 +499,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="Promise-声明"><a href="#Promise-声明" class="headerlink" title="Promise 声明"></a>Promise 声明</h4><p>首先，Promise 肯定是一个类，我们用 class 来声明。</p>
-<ul>
-<li>由于 <code>new Promise((resolve, reject) =&gt; {})</code>，所以传入一个参数(函数)，Promise/A+ 里叫他 executor (奇怪，我找了半天没找到…)，传入就行了。</li>
-<li>executor 里面有两个参数，一个叫 resolve（成功），一个叫 reject（失败）。</li>
-<li>由于 resolve 和 reject 可执行，所以都是函数，我们用 let 声明。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Promise &#123;</span><br><span class="line">    &#x2F;&#x2F; 构造器</span><br><span class="line">    constructor(executor) &#123;</span><br><span class="line">        &#x2F;&#x2F; 成功</span><br><span class="line">        let resolve &#x3D; () &#x3D;&gt; &#123;&#125;;</span><br><span class="line">        &#x2F;&#x2F; 失败</span><br><span class="line">        let reject &#x3D; () &#x3D;&gt; &#123;&#125;;</span><br><span class="line">        &#x2F;&#x2F; 立即执行</span><br><span class="line">        executor(resolve, reject);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h4 id="Promise-A-规范"><a href="#Promise-A-规范" class="headerlink" title="Promise/A+ 规范"></a>Promise/A+ 规范</h4><p><span class="exturl" data-url="aHR0cDovL21hbGNvbG15dS5naXRodWIuaW8vbWFsbm90ZS8yMDE1LzA2LzEyL1Byb21pc2VzLUEtUGx1cy8=" title="http://malcolmyu.github.io/malnote/2015/06/12/Promises-A-Plus/">Promise/A+ 规范<i class="fa fa-external-link"></i></span></p>
+<h4 id="Promise-声明"><a href="#Promise-声明" class="headerlink" title="Promise 声明"></a>Promise 声明</h4><p>首先，Promise 肯定是一个类，我们用 class 来声明。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/03/30/%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0Promise/#more" rel="contents">
