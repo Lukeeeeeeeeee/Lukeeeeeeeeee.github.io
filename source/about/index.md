@@ -1,5 +1,10 @@
 ---
-title: about
+title: 关于我
 date: 2020-03-30 10:20:33
 ---
-图床 https://www.superbed.cn/
+
+一名工作时长 2 年多的前端码农，平时看一些基础性的书籍，例如《JavaScript高级程序设计》《你不知道的JavaScript》《JavaScript权威指南》等等。是一个二次元爱好者，喜欢日漫，在学日语，计划去日本自由行。
+
+更多内容，将会后续更新。
+
+<!-- 图床 https://www.superbed.cn/ -->
