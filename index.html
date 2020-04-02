@@ -417,11 +417,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
-<p>作者：Wscats<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1dzY2F0cy9hcnRpY2xlcy9pc3N1ZXMvODU=" title="https://github.com/Wscats/articles/issues/85">https://github.com/Wscats/articles/issues/85<i class="fa fa-external-link"></i></span></p>
-</blockquote>
-<p>以下是我之前确实面试过的一道题，当时答的很不好，事后也想不起来了，正好前两天看到一个公众号发出来了，把思路也给捋清楚了，就记录到这里了。</p>
+          <p>以下是我之前确实面试过的一道题，当时答的很不好，事后也想不起来了，正好前两天看到一个公众号发出来了，把思路也给捋清楚了，就记录到这里了。</p>
 <h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function Foo() &#123;</span><br><span class="line">    getName &#x3D; function() &#123; alert(1); &#125;</span><br><span class="line">    return this;</span><br><span class="line">&#125;</span><br><span class="line">Foo.getName &#x3D; function() &#123; alert(2); &#125;</span><br><span class="line">Foo.prototype.getName &#x3D; function() &#123; alert(3); &#125;</span><br><span class="line">var getName &#x3D; function() &#123; alert(4); &#125;</span><br><span class="line">function getName() &#123; alert(5); &#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 请写出一下输出结果</span><br><span class="line">Foo.getName();</span><br><span class="line">getName();</span><br><span class="line">Foo().getName();</span><br><span class="line">getName();</span><br><span class="line">new Foo.getName();</span><br><span class="line">new Foo().getName();</span><br><span class="line">new new Foo().getName();</span><br></pre></td></tr></table></figure>
+
+<h4 id="Foo-getName"><a href="#Foo-getName" class="headerlink" title="Foo.getName();"></a>Foo.getName();</h4>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/03/30/%E4%B8%80%E9%81%93%E5%85%B3%E4%BA%8EJavaScript%E7%BB%BC%E5%90%88%E9%9D%A2%E8%AF%95%E9%A2%98/#more" rel="contents">
@@ -481,7 +480,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
+              <span>2.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
