@@ -4,9 +4,6 @@ date: 2020-03-30 20:29:04
 tags: [面试题汇总]
 ---
 
-> 作者：Wscats
-> https://github.com/Wscats/articles/issues/85
-
 以下是我之前确实面试过的一道题，当时答的很不好，事后也想不起来了，正好前两天看到一个公众号发出来了，把思路也给捋清楚了，就记录到这里了。
 
 #### 题目
@@ -90,15 +87,15 @@ var test = function () {
 先看下面这个经典问题，在一个程序里面同时用函数声明和函数表达式定义一个名为 getName 的函数
 
 ```
-getName(); // oaoafly
+getName(); // hehe
 var getName = function() {
-    console.log('wscat');
+    console.log('haha');
 }
-getName(); // wscat
+getName(); // haha
 function getName() {
-    console.log('oaoafly');
+    console.log('hehe');
 }
-getName(); // wscat
+getName(); // haha
 ```
 
 上面的代码看起来很类似，但实际上，JavaScript 函数上的一个“缺陷”就体现在 JavaScript 两种类型的函数定义上。
@@ -109,15 +106,15 @@ getName(); // wscat
 ```
 var getName; // 变量被提升，此时为 undefined
 
-getName(); // oaoafly 函数被提升  这里受函数声明的影响，虽然函数声明在最后，但是被提升到最前面来了
+getName(); // hehe 函数被提升  这里受函数声明的影响，虽然函数声明在最后，但是被提升到最前面来了
 var getName = function() {
-    console.log('wscat');
+    console.log('haha');
 }
-getName(); // wscat  函数表达式此时才被赋值并覆盖函数声明的定义
+getName(); // haha  函数表达式此时才被赋值并覆盖函数声明的定义
 function getName() {
-    console.log(oaoafly);
+    console.log('hehe');
 }
-getName(); // wscat  这里就执行了函数表达式的值
+getName(); // haha  这里就执行了函数表达式的值
 ```
 
 所以可以分解为这两个简单的问题来看清楚区别的本质
@@ -127,17 +124,17 @@ var getName;
 console.log(getName); // undefined
 getName(); // Uncaught TypeError: getName is not a function
 var getName = function() {
-    console.log('wscat');
+    console.log('haha');
 }
-getName(); // wscat
+getName(); // haha
 ```
 
 ```
 var getName;
-console.log(getName); // function getName() { console.log('oaoafly'); }
-getName(); // oaoafly
+console.log(getName); // function getName() { console.log('hehe'); }
+getName(); // hehe
 function getName() {
-    console.log('oaoafly');
+    console.log('hehe');
 }
 ```
 
@@ -159,10 +156,10 @@ Foo 函数的第一句 `getName = function() { alert(1); };` 是一句函数赋�
 此处考察了两个知识点，一个是**变量作用域问题**，一个是**this 指向问题**。我们利用下面的代码来回顾一下
 
 ```
-var name = 'wscats'; // 全局变量
-window.name = 'wscats'; // 全局变量
+var name = 'haha'; // 全局变量
+window.name = 'haha'; // 全局变量
 function getName() {
-    name = 'oaoafly'; // 没有用 var 声明，所以是全局变量，当前作用域没有 name
+    name = 'hehe'; // 没有用 var 声明，所以是全局变量，当前作用域没有 name
     var privateName = 'stacsw';
     return function() {
         console.log(this); // window
@@ -170,7 +167,7 @@ function getName() {
     }
 }
 var getPrivate = getName('Hello'); // 当前传参是局部变量，但函数中没有接受这个参数
-console.log(name); // oaoafly
+console.log(name); // hehe
 console.log(getPrivate()); // stacsw
 ```
 
@@ -293,7 +290,7 @@ new Foo.getName();
 function Foo(name) {
     this.name = name
 }
-console.log(new Foo('wscat'));
+console.log(new Foo('haha'));
 ```
 
 ![](https://pic.downk.cc/item/5e832ef7504f4bcb0433479c.png)
@@ -305,7 +302,7 @@ function Foo(name) {
     this.name = name;
     return 200;
 }
-console.log(new Foo('wscat'));
+console.log(new Foo('haha'));
 ```
 
 ![](https://pic.downk.cc/item/5e832ff1504f4bcb043409d6.png)
@@ -319,7 +316,7 @@ function Foo(name) {
         age: 16
     }
 }
-console.log(new Foo('wscat'));
+console.log(new Foo('haha'));
 ```
 
 ![](https://pic.downk.cc/item/5e83305f504f4bcb04346114.png)
@@ -335,12 +332,12 @@ function Foo(name) {
         return this.name;
     }
 }
-Foo.prototype.name = 'oaoafly';
+Foo.prototype.name = 'hehe';
 Foo.prototype.getName = function() {
-    return 'oaoafly';
+    return 'hehe';
 }
-console.log((new Foo('wscat')).name); // wscat
-console.log((new Foo('wscat')).getName()); // wscat
+console.log((new Foo('haha')).name); // haha
+console.log((new Foo('haha')).getName()); // haha
 ```
 
 #### new new Foo().getName();
@@ -420,3 +417,5 @@ new Foo().getName(); // 3
 //多了一问
 new Foo().getName().getName(); // 3 1
 ```
+
+> https://github.com/Wscats/articles/issues/85
