@@ -42,36 +42,38 @@ Promise/A+ 有规定：
 
 ```
 class Promise{
-    // 初始化状态
-    this.state = 'pending';
-    // 成功的值
-    this.value = undefined;
-    // 失败的原因
-    this.reason = undefined;
+    constructor(executor) {
+        // 初始化状态
+        this.state = 'pending';
+        // 成功的值
+        this.value = undefined;
+        // 失败的原因
+        this.reason = undefined;
 
-    let resolve = (value) => {
-        if (this.state === 'pending') {
-            // resolve 调用后，state转为成功状态
-            this.state = 'fulfilled';
-            // 储存成功的值
-            this.value = value;
+        let resolve = (value) => {
+            if (this.state === 'pending') {
+                // resolve 调用后，state转为成功状态
+                this.state = 'fulfilled';
+                // 储存成功的值
+                this.value = value;
+            }
         }
-    }
 
-    let reject = (reason) => {
-        if (this.state === 'pending') {
-            // reject 调用后，state转为失败
-            this.state = 'rejected';
-            // 储存失败的原因
-            this.reason = reason;
+        let reject = (reason) => {
+            if (this.state === 'pending') {
+                // reject 调用后，state转为失败
+                this.state = 'rejected';
+                // 储存失败的原因
+                this.reason = reason;
+            }
         }
-    }
 
-    // 如果 executor 失败，直接调用 reject
-    try {
-        executor(resolve, reject);
-    } catch (e) {
-        reject(e);
+        // 如果 executor 失败，直接调用 reject
+        try {
+            executor(resolve, reject);
+        } catch (e) {
+            reject(e);
+        }
     }
 }
 ```
@@ -85,38 +87,39 @@ class Promise{
 
 ```
 class Promise {
-    // 初始化状态
-    this.state = 'pending';
-    // 成功的值
-    this.value = undefined;
-    // 失败的原因
-    this.reason = undefined;
+    constructor(executor) {
+        // 初始化状态
+        this.state = 'pending';
+        // 成功的值
+        this.value = undefined;
+        // 失败的原因
+        this.reason = undefined;
 
-    let resolve = (value) => {
-        if (this.state === 'pending') {
-            // resolve 调用后，state转为成功状态
-            this.state = 'fulfilled';
-            // 储存成功的值
-            this.value = value;
+        let resolve = (value) => {
+            if (this.state === 'pending') {
+                // resolve 调用后，state转为成功状态
+                this.state = 'fulfilled';
+                // 储存成功的值
+                this.value = value;
+            }
+        }
+
+        let reject = (reason) => {
+            if (this.state === 'pending') {
+                // reject 调用后，state转为失败
+                this.state = 'rejected';
+                // 储存失败的原因
+                this.reason = reason;
+            }
+        }
+
+        // 如果 executor 失败，直接调用 reject
+        try {
+            executor(resolve, reject);
+        } catch (e) {
+            reject(e);
         }
     }
-
-    let reject = (reason) => {
-        if (this.state === 'pending') {
-            // reject 调用后，state转为失败
-            this.state = 'rejected';
-            // 储存失败的原因
-            this.reason = reason;
-        }
-    }
-
-    // 如果 executor 失败，直接调用 reject
-    try {
-        executor(resolve, reject);
-    } catch (e) {
-        reject(e);
-    }
-
     // then 有两个参数 onFulfilled, onRejected
     then(onFulfilled, onRejected) {
         // state 为 fulfilled，执行 onFulfilled，传入成功的值
@@ -148,46 +151,47 @@ p.then();
 
 ```
 class Promise {
-    // 初始化状态
-    this.state = 'pending';
-    // 成功的值
-    this.value = undefined;
-    // 失败的原因
-    this.reason = undefined;
-    // 成功时存放的数组
-    this.onResolvedCallbacks = [];
-    // 失败时存放的数组
-    this.onRejectedCallbacks = [];
+    constructor(executor) {
+        // 初始化状态
+        this.state = 'pending';
+        // 成功的值
+        this.value = undefined;
+        // 失败的原因
+        this.reason = undefined;
+        // 成功时存放的数组
+        this.onResolvedCallbacks = [];
+        // 失败时存放的数组
+        this.onRejectedCallbacks = [];
 
-    let resolve = (value) => {
-        if (this.state === 'pending') {
-            // resolve 调用后，state转为成功状态
-            this.state = 'fulfilled';
-            // 储存成功的值
-            this.value = value;
-            // 一旦 resolve 执行，调用成功数组的函数
-            this.onResolvedCallbacks.forEach(fn => fn());
+        let resolve = (value) => {
+            if (this.state === 'pending') {
+                // resolve 调用后，state转为成功状态
+                this.state = 'fulfilled';
+                // 储存成功的值
+                this.value = value;
+                // 一旦 resolve 执行，调用成功数组的函数
+                this.onResolvedCallbacks.forEach(fn => fn());
+            }
+        }
+
+        let reject = (reason) => {
+            if (this.state === 'pending') {
+                // reject 调用后，state转为失败
+                this.state = 'rejected';
+                // 储存失败的原因
+                this.reason = reason;
+                // 一旦 reject 执行，调用失败数组的函数
+                this.onRejectedCallbacks.forEach(fn => fn());
+            }
+        }
+
+        // 如果 executor 失败，直接调用 reject
+        try {
+            executor(resolve, reject);
+        } catch (e) {
+            reject(e);
         }
     }
-
-    let reject = (reason) => {
-        if (this.state === 'pending') {
-            // reject 调用后，state转为失败
-            this.state = 'rejected';
-            // 储存失败的原因
-            this.reason = reason;
-            // 一旦 reject 执行，调用失败数组的函数
-            this.onRejectedCallbacks.forEach(fn => fn());
-        }
-    }
-
-    // 如果 executor 失败，直接调用 reject
-    try {
-        executor(resolve, reject);
-    } catch (e) {
-        reject(e);
-    }
-
     // then 有两个参数 onFulfilled, onRejected
     then(onFulfilled, onRejected) {
         // state 为 fulfilled，执行 onFulfilled，传入成功的值
@@ -232,46 +236,47 @@ Promise/A+ 规定 onFulfilled() 或 onRejected() 的值，叫做 x，判断 x �
 
 ```
 class Promise {
-    // 初始化状态
-    this.state = 'pending';
-    // 成功的值
-    this.value = undefined;
-    // 失败的原因
-    this.reason = undefined;
-    // 成功时存放的数组
-    this.onResolvedCallbacks = [];
-    // 失败时存放的数组
-    this.onRejectedCallbacks = [];
+    constructor(executor) {
+        // 初始化状态
+        this.state = 'pending';
+        // 成功的值
+        this.value = undefined;
+        // 失败的原因
+        this.reason = undefined;
+        // 成功时存放的数组
+        this.onResolvedCallbacks = [];
+        // 失败时存放的数组
+        this.onRejectedCallbacks = [];
 
-    let resolve = (value) => {
-        if (this.state === 'pending') {
-            // resolve 调用后，state转为成功状态
-            this.state = 'fulfilled';
-            // 储存成功的值
-            this.value = value;
-            // 一旦 resolve 执行，调用成功数组的函数
-            this.onResolvedCallbacks.forEach(fn => fn());
+        let resolve = (value) => {
+            if (this.state === 'pending') {
+                // resolve 调用后，state转为成功状态
+                this.state = 'fulfilled';
+                // 储存成功的值
+                this.value = value;
+                // 一旦 resolve 执行，调用成功数组的函数
+                this.onResolvedCallbacks.forEach(fn => fn());
+            }
+        }
+
+        let reject = (reason) => {
+            if (this.state === 'pending') {
+                // reject 调用后，state转为失败
+                this.state = 'rejected';
+                // 储存失败的原因
+                this.reason = reason;
+                // 一旦 reject 执行，调用失败数组的函数
+                this.onRejectedCallbacks.forEach(fn => fn());
+            }
+        }
+
+        // 如果 executor 失败，直接调用 reject
+        try {
+            executor(resolve, reject);
+        } catch (e) {
+            reject(e);
         }
     }
-
-    let reject = (reason) => {
-        if (this.state === 'pending') {
-            // reject 调用后，state转为失败
-            this.state = 'rejected';
-            // 储存失败的原因
-            this.reason = reason;
-            // 一旦 reject 执行，调用失败数组的函数
-            this.onRejectedCallbacks.forEach(fn => fn());
-        }
-    }
-
-    // 如果 executor 失败，直接调用 reject
-    try {
-        executor(resolve, reject);
-    } catch (e) {
-        reject(e);
-    }
-
     // then 有两个参数 onFulfilled, onRejected
     then(onFulfilled, onRejected) {
         let promise2 = new Promise((resolve, reject) => {
@@ -378,46 +383,47 @@ Promise/A+ 规定 onFulfilled，onRejected 都是函数，如果不是，则直�
 
 ```
 class Promise {
-    // 初始化状态
-    this.state = 'pending';
-    // 成功的值
-    this.value = undefined;
-    // 失败的原因
-    this.reason = undefined;
-    // 成功时存放的数组
-    this.onResolvedCallbacks = [];
-    // 失败时存放的数组
-    this.onRejectedCallbacks = [];
+    constructor(executor) {
+        // 初始化状态
+        this.state = 'pending';
+        // 成功的值
+        this.value = undefined;
+        // 失败的原因
+        this.reason = undefined;
+        // 成功时存放的数组
+        this.onResolvedCallbacks = [];
+        // 失败时存放的数组
+        this.onRejectedCallbacks = [];
 
-    let resolve = (value) => {
-        if (this.state === 'pending') {
-            // resolve 调用后，state转为成功状态
-            this.state = 'fulfilled';
-            // 储存成功的值
-            this.value = value;
-            // 一旦 resolve 执行，调用成功数组的函数
-            this.onResolvedCallbacks.forEach(fn => fn());
+        let resolve = (value) => {
+            if (this.state === 'pending') {
+                // resolve 调用后，state转为成功状态
+                this.state = 'fulfilled';
+                // 储存成功的值
+                this.value = value;
+                // 一旦 resolve 执行，调用成功数组的函数
+                this.onResolvedCallbacks.forEach(fn => fn());
+            }
+        }
+
+        let reject = (reason) => {
+            if (this.state === 'pending') {
+                // reject 调用后，state转为失败
+                this.state = 'rejected';
+                // 储存失败的原因
+                this.reason = reason;
+                // 一旦 reject 执行，调用失败数组的函数
+                this.onRejectedCallbacks.forEach(fn => fn());
+            }
+        }
+
+        // 如果 executor 失败，直接调用 reject
+        try {
+            executor(resolve, reject);
+        } catch (e) {
+            reject(e);
         }
     }
-
-    let reject = (reason) => {
-        if (this.state === 'pending') {
-            // reject 调用后，state转为失败
-            this.state = 'rejected';
-            // 储存失败的原因
-            this.reason = reason;
-            // 一旦 reject 执行，调用失败数组的函数
-            this.onRejectedCallbacks.forEach(fn => fn());
-        }
-    }
-
-    // 如果 executor 失败，直接调用 reject
-    try {
-        executor(resolve, reject);
-    } catch (e) {
-        reject(e);
-    }
-
     // then 有两个参数 onFulfilled, onRejected
     then(onFulfilled, onRejected) {
         onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value;
@@ -472,4 +478,201 @@ class Promise {
         return promise2;
     }
 }
+```
+
+顺便实现 catch、resolve、reject、race、all方法
+
+```
+class Promise {
+    constructor(executor) {
+        // 初始化状态
+        this.state = 'pending';
+        // 成功的值
+        this.value = undefined;
+        // 失败的原因
+        this.reason = undefined;
+        // 成功时存放的数组
+        this.onResolvedCallbacks = [];
+        // 失败时存放的数组
+        this.onRejectedCallbacks = [];
+
+        let resolve = (value) => {
+            if (this.state === 'pending') {
+                // resolve 调用后，state转为成功状态
+                this.state = 'fulfilled';
+                // 储存成功的值
+                this.value = value;
+                // 一旦 resolve 执行，调用成功数组的函数
+                this.onResolvedCallbacks.forEach(fn => fn());
+            }
+        }
+
+        let reject = (reason) => {
+            if (this.state === 'pending') {
+                // reject 调用后，state转为失败
+                this.state = 'rejected';
+                // 储存失败的原因
+                this.reason = reason;
+                // 一旦 reject 执行，调用失败数组的函数
+                this.onRejectedCallbacks.forEach(fn => fn());
+            }
+        }
+
+        // 如果 executor 失败，直接调用 reject
+        try {
+            executor(resolve, reject);
+        } catch (e) {
+            reject(e);
+        }
+    }
+    // then 有两个参数 onFulfilled, onRejected
+    then(onFulfilled, onRejected) {
+        onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value;
+        onRejected = typeof onRejected === 'function' ? onRejected : reason => { throw reason };
+        let promise2 = new Promise((resolve, reject) => {
+            // state 为 fulfilled，执行 onFulfilled，传入成功的值
+            if (this.state === 'fulfilled') {
+                setTimeout(() => {
+                    try {
+                        let x = onFulfilled(this.value);
+                        resolvePromise(promise2, x, resolve, reject);
+                    } catch(e) {
+                        reject(e);
+                    }
+                })
+            }
+            // state 为 rejected onRejected，传入失败的原因
+            if (this.state === 'rejected') {
+                setTimeout(() => {
+                    try {
+                        let x = onRejected(this.reason);
+                        resolvePromise(promise2, x, resolve, reject);
+                    } catch(e) {
+                        reject(e);
+                    }
+                })
+            }
+            // state 为 pending 时
+            if (this.state === 'pending') {
+                this.onResolvedCallbacks.push(() => {
+                    setTimeout(() => {
+                        try {
+                            let x = onFulfilled(this.value);
+                            resolvePromise(promise2, x, resolve, reject);
+                        } catch(e) {
+                            reject(e);
+                        }
+                    })
+                });
+                this.onRejectedCallbacks.push(() => {
+                    setTimeout(() => {
+                        try {
+                            let x = onRejected(this.reason);
+                            resolvePromise(promise2, x, resolve, reject);
+                        } catch(e) {
+                            reject(e);
+                        }
+                    })
+                });
+            }
+        });
+        return promise2;
+    }
+    // 实现 catch 方法
+    catch(fn) {
+        return this.then(null, fn);
+    }
+}
+function resolvePromise(promise2, x, resolve, reject) {
+    // 循环引用直接报错
+    if (promise2 === x) {
+        return reject(new TypeError('Chaining cycle detected for promise'));
+    }
+
+    // 防止多次调用
+    let called = false;
+    if (x !== null && (typeof x === 'object' || typeof x === 'function')) {
+        try {
+            let then = x.then;
+            if (typeof then === 'function') {
+                then.call(x, y => {
+                    if (called) return;
+                    called = true;
+                    resolvePromise(promise2, y, resolve, reject);
+                }, r => {
+                    if (called) return;
+                    called = true;
+                    reject(r);
+                })
+            } else {
+                resolve(x);
+            }
+        } catch(e) {
+            if (called) return;
+            called = true;
+            reject(e);
+        }
+    } else {
+        resolve(x);
+    }
+}
+// 实现 resolve 方法
+Promise.resolve = function(val) {
+    return new Promise((resolve, reject) => {
+        resolve(val);
+    })
+}
+// 实现 reject 方法
+Promise.reject = function(reason) {
+    return new Promise((resolve, reject) => {
+        reject(reason);
+    })
+}
+// 实现 race 方法
+Promise.race = function(promises) {
+    return new Promise((resolve, reject) => {
+        for (let i = 0; i < promises.length; i++) {
+            promises[i].then(resolve, reject);
+        }
+    })
+}
+// 实现 all 方法(获取所有的 promise，都执行 then，把结果放到数组，一起返回)
+Promise.all = function(promises) {
+    let arr = [];
+    let i = 0;
+    function processData(index, data) {
+        arr[index] = data;
+        i++;
+        if (i === promise.length) {
+            resolve(arr);
+        }
+    }
+    return new Promise((resolve, reject) => {
+        for (let i = 0; i < promises.length; i++) {
+            promises[i].then(data => {
+                processData(i, data);
+            }, reject);
+        }
+    })
+}
+```
+
+#### 验证我们的 Promise 是否正确
+
+- 安装 `npm install -g promises-aplus-tests`
+
+- 命令行 `promises-aplus-test [js文件名].js`
+
+- 添加如下代码
+
+```
+Promise.defer = Promise.deferred = function () {
+  let dfd = {}
+  dfd.promise = new Promise((resolve,reject)=>{
+    dfd.resolve = resolve;
+    dfd.reject = reject;
+  });
+  return dfd;
+}
+module.exports = Promise;
 ```
