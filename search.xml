@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>每日一道算法</title>
+    <url>/2020/04/03/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%81%93%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>两数之和</p>
+<p>原题链接：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vcHJvYmxlbXMvdHdvLXN1bS8=" title="https://leetcode-cn.com/problems/two-sum/">两数之和<i class="fa fa-external-link"></i></span></p>
+<h6 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h6><p>算法第一道，就被卡住了。泪目。</p>
+<p><strong>实例</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">给定 nums &#x3D; [2, 7, 11, 15], target &#x3D; 9</span><br><span class="line"></span><br><span class="line">因为 nums[0] + nums[1] &#x3D; 2 + 7 &#x3D; 9</span><br><span class="line">所以返回 [0, 1]</span><br></pre></td></tr></table></figure>
+
+<p>从实例中想到的思路就是，用 for 循环</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var twoSum &#x3D; function(nums, target) &#123;</span><br><span class="line">    for (let i &#x3D; 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">        if (nums[i] + nums[i + 1] &#x3D;&#x3D;&#x3D; target) &#123;</span><br><span class="line">            return [i, i + 1];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码在测试用例 <code>[2,7,11,15] 9</code> 时通过了，瞎猫碰到死耗子了 - -!。但是一点提交就暴露出来问题，当 <code>[3,2,4] 6</code> 时就死翘翘了。</p>
+<p>结果我就一下子蒙蔽了，算法实在太差了(暴露了自己的水平)。没办法，去评论区看了看，发现需要在循环一遍，用 2 和每一个值都加一下，来判断。恍然大悟。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var twoSum &#x3D; function(nums, target) &#123;</span><br><span class="line">    for (let i &#x3D; 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">        for (let j &#x3D; 0; j &lt; nums.length; j++) &#123;</span><br><span class="line">            if(nums[i] + nums[j] &#x3D;&#x3D;&#x3D; target) &#123;</span><br><span class="line">                return [i, j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第一次，过了，美滋滋。提交！WDNMD，还是不行。</p>
+<p>测试用例 <code>[3,2,4] 6</code>，返回 <code>[0,0]</code>，预期 <code>[1,2]</code>。</p>
+<p>我NM，<code>3+3=6</code>，可不返回 <code>[0,0]</code>。</p>
+<p>再改</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var twoSum &#x3D; function(nums, target) &#123;</span><br><span class="line">    for (let i &#x3D; 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">        for (let j &#x3D; i + 1; j &lt; nums.length; j++) &#123;</span><br><span class="line">            if(nums[i] + nums[j] &#x3D;&#x3D;&#x3D; target) &#123;</span><br><span class="line">                return [i, j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第一次，过了，提交！OHHHHHHH！都过了。但是尼玛耗时 196ms，玩啥呢？无奈自己水平很菜，评论区走起，发现一个大佬，代码如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var twoSum &#x3D; function(nums, target) &#123;</span><br><span class="line">    let temp &#x3D; [];</span><br><span class="line">    for (let i &#x3D; 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">        let diff &#x3D; target - nums[i];</span><br><span class="line">        if (temp[diff] !&#x3D; undefined) &#123;</span><br><span class="line">            return [temp[diff], i];</span><br><span class="line">        &#125;</span><br><span class="line">        temp[nums[i]] &#x3D; i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>68 ms。还是大佬厉害。</p>
+<p>第一天开始算法题，也不知道自己是不是业务做多了，这么简单的题都被卡住，哎！</p>
+]]></content>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Cookie 和 SameSite 属性</title>
     <url>/2020/04/02/Cookie-%E5%92%8C-SameSite-%E5%B1%9E%E6%80%A7/</url>
     <content><![CDATA[<h4 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h4><p>一般我们都会说“HTTP 是一个无状态的协议”，不过要注意这里的 HTTP 其实是指 HTTP 1.x，而所谓无状态协议，简单的理解就是即使同一个客户端连续两次发送请求给服务器，服务器也识别不出这是同一个客户端发送的请求，这导致的问题就比如你加入了一个商品到购物车中，但是因为识别不出时同一个客户端，刷新一下页面就没有了…</p>
