@@ -2,7 +2,12 @@
 <search>
   <entry>
     <title>每日一道算法</title>
-    <url>/2020/04/03/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%81%93%E7%AE%97%E6%B3%95/</url>
+    <url>/2020/04/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%81%93%E7%AE%97%E6%B3%95200404/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>每日一道算法</title>
+    <url>/2020/04/03/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%81%93%E7%AE%97%E6%B3%95200403/</url>
     <content><![CDATA[<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>两数之和</p>
 <p>原题链接：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vcHJvYmxlbXMvdHdvLXN1bS8=" title="https://leetcode-cn.com/problems/two-sum/">两数之和<i class="fa fa-external-link"></i></span></p>
 <h6 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h6><p>算法第一道，就被卡住了。泪目。</p>
