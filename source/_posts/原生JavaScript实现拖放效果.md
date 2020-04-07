@@ -1,7 +1,7 @@
 ---
 title: 原生JavaScript实现拖放效果
 date: 2020-04-07 21:49:43
-tags:
+tags: [JavaScript]
 ---
 
 一个简单的拖放效果
