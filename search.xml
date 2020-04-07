@@ -25,6 +25,9 @@
 <p>在 dragOver 中我们阻止了默认行为, 是因为当被拖动元素放到指定位置并松开鼠标时, 在这一时刻会先触发 dragover 事件然后再触发 drop 事件, 但在 dragover 中默认行为可能会阻止 drop 事件, 所以需要 e.preventDefault() 阻止默认行为.</p>
 </blockquote>
 ]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
   </entry>
   <entry>
     <title>Cookie 和 SameSite 属性</title>
