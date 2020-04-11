@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-07T13:49:43.000Z</updated>
+  <updated>2020-04-10T23:53:19.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>动漫日记</title>
+    <link href="http://yoursite.com/2020/04/11/%E5%8A%A8%E6%BC%AB%E6%97%A5%E8%AE%B0/"/>
+    <id>http://yoursite.com/2020/04/11/%E5%8A%A8%E6%BC%AB%E6%97%A5%E8%AE%B0/</id>
+    <published>2020-04-10T23:53:19.000Z</published>
+    <updated>2020-04-10T23:53:19.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;身边没有喜欢动漫的通道人，每次分享都会被说：“小孩子看的东西”。所以才有了想要写此文章的目的，每看完一部都会更新，也是保持写博客的习惯。&lt;/p&gt;
+&lt;p&gt;我喜欢看爱情，校园番，以下有强烈推荐看的番剧，一定要看哦，甜甜爱情在这个物质生活、快节奏生活里给自己一点点努力下去的动力，吃饱饱的狗粮才能笑看身边的物质爱情，因为“爱情”从来都是甜的让人羡慕！ &lt;/p&gt;
+&lt;h4 id=&quot;开始&quot;&gt;&lt;a href=&quot;#开始&quot; class=&quot;headerlink&quot; title=&quot;开始&quot;&gt;&lt;/a&gt;开始&lt;/h4&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="动漫" scheme="http://yoursite.com/tags/%E5%8A%A8%E6%BC%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>原生JavaScript实现拖放效果</title>
