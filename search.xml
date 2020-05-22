@@ -355,8 +355,7 @@
 <td></td>
 </tr>
 </tbody></table>
-<p><sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>：会先调用 valueOf()，如果没有，则调用 toString()，都没有则抛出类型错误异常<br><sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>：调用 join()，如[‘a’] =&gt; ‘a’, [1,2,3] =&gt; ‘1,2,3’<br><sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>：调用 toString()<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">会先调用 toString()，如果没有，则调用 valueOf()，都没有则抛出类型错误异常</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div></p>
-]]></content>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">会先调用 toString()，如果没有，则调用 valueOf()，都没有则抛出类型错误异常</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">会先调用 valueOf()，如果没有，则调用 toString()，都没有则抛出类型错误异常</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">调用 join()，如['a'] =&gt; 'a', [1,2,3] =&gt; '1,2,3'</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">调用 toString()</span><a href="#fnref:4" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
       <tags>
         <tag>JavaScript</tag>
       </tags>
