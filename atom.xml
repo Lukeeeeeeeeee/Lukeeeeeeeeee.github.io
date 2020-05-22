@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-10T23:53:19.000Z</updated>
+  <updated>2020-05-22T14:15:09.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,206 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript基础学习-作用域</title>
+    <link href="http://yoursite.com/2020/05/22/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    <id>http://yoursite.com/2020/05/22/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E4%BD%9C%E7%94%A8%E5%9F%9F/</id>
+    <published>2020-05-22T14:15:09.000Z</published>
+    <updated>2020-05-22T14:15:09.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;变量作用域和函数作用域&quot;&gt;&lt;a href=&quot;#变量作用域和函数作用域&quot; class=&quot;headerlink&quot; title=&quot;变量作用域和函数作用域&quot;&gt;&lt;/a&gt;变量作用域和函数作用域&lt;/h3&gt;&lt;p&gt;全局变量的作用域就是全局，无论在哪里都可以使用。&lt;/p&gt;
+&lt;p&gt;函数内声明的变量，其作用域只在函数内(包括内嵌函数)可以使用。&lt;br&gt;别忘了，函数的参数，其作用域也是函数内部。&lt;br&gt;在函数内部，局部变量优先级高于同名的全局变量。如果一个函数的内部声明了一个局部变量或者函数带有的参数和全局变量同名，那么全局变量就会被局部变量或者参数覆盖。&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; scope = &lt;span class=&quot;string&quot;&gt;&#39;global&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;checkoutscope&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; scope = &lt;span class=&quot;string&quot;&gt;&#39;local&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; scope;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;checkoutscope(); &lt;span class=&quot;comment&quot;&gt;// =&amp;gt; &#39;local&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript基础学习-类型转换</title>
+    <link href="http://yoursite.com/2020/05/21/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"/>
+    <id>http://yoursite.com/2020/05/21/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</id>
+    <published>2020-05-21T14:58:48.000Z</published>
+    <updated>2020-05-21T14:58:48.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;类型转换表&quot;&gt;&lt;a href=&quot;#类型转换表&quot; class=&quot;headerlink&quot; title=&quot;类型转换表&quot;&gt;&lt;/a&gt;类型转换表&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;值&lt;/th&gt;
+&lt;th&gt;转换为：字符串&lt;/th&gt;
+&lt;th&gt;数字&lt;/th&gt;
+&lt;th&gt;布尔值&lt;/th&gt;
+&lt;th&gt;对象&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;undefined&lt;/td&gt;
+&lt;td&gt;‘undefined’&lt;/td&gt;
+&lt;td&gt;NaN&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;false&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;throw TypeError&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;null&lt;/td&gt;
+&lt;td&gt;‘null’&lt;/td&gt;
+&lt;td&gt;NaN&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;false&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;throw TypeError&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;true&lt;/td&gt;
+&lt;td&gt;‘true’&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;throw TypeError&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;false&lt;/td&gt;
+&lt;td&gt;‘false’&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;throw TypeError&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;‘’(空字符串)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;false&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;new String(‘’)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;‘1.2’&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;1.2&lt;/td&gt;
+&lt;td&gt;true&lt;/td&gt;
+&lt;td&gt;new Number(1.2)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;‘one’&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;NaN&lt;/td&gt;
+&lt;td&gt;true&lt;/td&gt;
+&lt;td&gt;new String(‘one’)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;‘0’&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;false&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;new Number(0)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-0&lt;/td&gt;
+&lt;td&gt;‘0’&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;false&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;new Number(-0)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;NaN&lt;/td&gt;
+&lt;td&gt;‘NaN’&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;false&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;new Number(NaN)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Infinity&lt;/td&gt;
+&lt;td&gt;‘Infinity’&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;true&lt;/td&gt;
+&lt;td&gt;new Number(Infinity)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Infinity&lt;/td&gt;
+&lt;td&gt;‘-Infinity’&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;true&lt;/td&gt;
+&lt;td&gt;new Nubmer(-Infinity)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1(无穷大, 非零)&lt;/td&gt;
+&lt;td&gt;‘1’&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;true&lt;/td&gt;
+&lt;td&gt;new Nubmer(1)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;{}(任意对象)&lt;/td&gt;
+&lt;td&gt;注 1&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/td&gt;
+&lt;td&gt;注 2&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/td&gt;
+&lt;td&gt;true&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;任意数组&quot;&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;‘’&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;true&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;1个数字元素&quot;&gt;9&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;‘9’&lt;/td&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;true&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;其他数组&quot;&gt;‘a’&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;注 3&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/td&gt;
+&lt;td&gt;NaN&lt;/td&gt;
+&lt;td&gt;true&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;function(){}(任意函数)&lt;/td&gt;
+&lt;td&gt;注 4&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/td&gt;
+&lt;td&gt;NaN&lt;/td&gt;
+&lt;td&gt;true&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;：会先调用 valueOf()，如果没有，则调用 toString()，都没有则抛出类型错误异常&lt;br&gt;&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;：调用 join()，如[‘a’] =&amp;gt; ‘a’, [1,2,3] =&amp;gt; ‘1,2,3’&lt;br&gt;&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;：调用 toString()&lt;div id=&quot;footnotes&quot;&gt;&lt;hr&gt;&lt;div id=&quot;footnotelist&quot;&gt;&lt;ol style=&quot;list-style:none; padding-left: 0;&quot;&gt;&lt;li id=&quot;fn:1&quot;&gt;&lt;span style=&quot;display: inline-block; vertical-align: top; padding-right: 10px;&quot;&gt;1.&lt;/span&gt;&lt;span style=&quot;display: inline-block; vertical-align: top;&quot;&gt;会先调用 toString()，如果没有，则调用 valueOf()，都没有则抛出类型错误异常&lt;/span&gt;&lt;a href=&quot;#fnref:1&quot; rev=&quot;footnote&quot;&gt; ↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript基础学习-不可变的原始值和可变的对象引用</title>
+    <link href="http://yoursite.com/2020/05/21/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%9A%84%E5%8E%9F%E5%A7%8B%E5%80%BC%E5%92%8C%E5%8F%AF%E5%8F%98%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8/"/>
+    <id>http://yoursite.com/2020/05/21/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%9A%84%E5%8E%9F%E5%A7%8B%E5%80%BC%E5%92%8C%E5%8F%AF%E5%8F%98%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8/</id>
+    <published>2020-05-21T14:34:18.000Z</published>
+    <updated>2020-05-21T14:34:18.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;JavaScript的原始值和对象-基本类型和引用类型&quot;&gt;&lt;a href=&quot;#JavaScript的原始值和对象-基本类型和引用类型&quot; class=&quot;headerlink&quot; title=&quot;JavaScript的原始值和对象(基本类型和引用类型)&quot;&gt;&lt;/a&gt;JavaScript的原始值和对象(基本类型和引用类型)&lt;/h3&gt;&lt;p&gt;JavaScript的基础类型(原始值)：undefined、null、string、number、boolean、symbol&lt;/p&gt;
+&lt;h4 id=&quot;原始值和对象区别：&quot;&gt;&lt;a href=&quot;#原始值和对象区别：&quot; class=&quot;headerlink&quot; title=&quot;原始值和对象区别：&quot;&gt;&lt;/a&gt;原始值和对象区别：&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;原始值是不可改变的，任何方法都不可改变一个原始值。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>动漫日记</title>
