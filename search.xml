@@ -216,6 +216,20 @@
       </tags>
   </entry>
   <entry>
+    <title>JavaScript基础学习-关系表达式</title>
+    <url>/2020/05/24/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E5%85%B3%E7%B3%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <content><![CDATA[<p>这里不具体介绍所有的，主要介绍下 instanceof 运算符的运行原理。</p>
+<p>关系表达式有：==、 ===、 !=、 !==、 &lt;、 &gt;、 &lt;=、 &gt;=、 in、 instanceof</p>
+<h3 id="in-运算发"><a href="#in-运算发" class="headerlink" title="in 运算发"></a>in 运算发</h3><p>其中 in 运算符是用来检测对象中是否存在某个属性</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> point = &#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">1</span>&#125;;</span><br><span class="line"><span class="string">'x'</span> <span class="keyword">in</span> point; <span class="comment">// =&gt; true</span></span><br><span class="line"><span class="string">'z'</span> <span class="keyword">in</span> point; <span class="comment">// =&gt; false</span></span><br><span class="line"><span class="string">'toString'</span> <span class="keyword">in</span> point <span class="comment">// =&gt; true: 对象继承了 toString() 方法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> data = [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line"><span class="string">'0'</span> <span class="keyword">in</span> data; <span class="comment">// =&gt; true: 0 在数组的索引中</span></span><br><span class="line"><span class="number">1</span> <span class="keyword">in</span> data; <span class="comment">// =&gt; true: 数字转换成字符串</span></span><br><span class="line"><span class="number">3</span> <span class="keyword">in</span> data; <span class="comment">// =&gt; false: 没有索引为 3 的元素</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="instanceof-运算符"><a href="#instanceof-运算符" class="headerlink" title="instanceof 运算符"></a>instanceof 运算符</h3><p>instanceof 运行原理：为了计算表达式 o instanceof f，JavaScript 首先计算 f.prototype，然后在原型链中查找 o，如果找到，那么 o 是 f 的一个实例，返回 true。<br>如果 f.prototype 不在 o 的原型链中的话，那么 o 不是 f 的实例，返回 false。</p>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript基础学习-类型转换</title>
     <url>/2020/05/21/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</url>
     <content><![CDATA[<h3 id="类型转换表"><a href="#类型转换表" class="headerlink" title="类型转换表"></a>类型转换表</h3><table>
@@ -233,28 +247,28 @@
 <td>‘undefined’</td>
 <td>NaN</td>
 <td><strong>false</strong></td>
-<td>throw TypeError</td>
+<td>throws TypeError</td>
 </tr>
 <tr>
 <td>null</td>
 <td>‘null’</td>
-<td>NaN</td>
+<td>0</td>
 <td><strong>false</strong></td>
-<td>throw TypeError</td>
+<td>throws TypeError</td>
 </tr>
 <tr>
 <td>true</td>
 <td>‘true’</td>
 <td>1</td>
 <td></td>
-<td>throw TypeError</td>
+<td>new Boolean(true)</td>
 </tr>
 <tr>
 <td>false</td>
 <td>‘false’</td>
 <td>0</td>
 <td></td>
-<td>throw TypeError</td>
+<td>new Boolean(false)</td>
 </tr>
 <tr>
 <td>‘’(空字符串)</td>
@@ -320,28 +334,28 @@
 <td>new Nubmer(1)</td>
 </tr>
 <tr>
-<td>{}(任意对象)</td>
+<td>{} (任意对象)</td>
 <td>注 1<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></td>
 <td>注 2<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></td>
 <td>true</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="任意数组"></a></td>
+<td>[] (任意数组)</td>
 <td>‘’</td>
 <td>0</td>
 <td>true</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="1个数字元素">9</a></td>
+<td>[9] (1个数字元素)</td>
 <td>‘9’</td>
 <td>9</td>
 <td>true</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="其他数组">‘a’</a></td>
+<td>[‘a’] (其他数组)</td>
 <td>注 3<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></td>
 <td>NaN</td>
 <td>true</td>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-22T14:15:09.000Z</updated>
+  <updated>2020-05-24T07:03:10.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript基础学习-关系表达式</title>
+    <link href="http://yoursite.com/2020/05/24/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E5%85%B3%E7%B3%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>http://yoursite.com/2020/05/24/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E5%85%B3%E7%B3%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/</id>
+    <published>2020-05-24T07:03:10.000Z</published>
+    <updated>2020-05-24T07:03:10.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里不具体介绍所有的，主要介绍下 instanceof 运算符的运行原理。&lt;/p&gt;
+&lt;p&gt;关系表达式有：==、 ===、 !=、 !==、 &amp;lt;、 &amp;gt;、 &amp;lt;=、 &amp;gt;=、 in、 instanceof&lt;/p&gt;
+&lt;h3 id=&quot;in-运算发&quot;&gt;&lt;a href=&quot;#in-运算发&quot; class=&quot;headerlink&quot; title=&quot;in 运算发&quot;&gt;&lt;/a&gt;in 运算发&lt;/h3&gt;&lt;p&gt;其中 in 运算符是用来检测对象中是否存在某个属性&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript基础学习-作用域</title>
@@ -61,28 +82,28 @@
 &lt;td&gt;‘undefined’&lt;/td&gt;
 &lt;td&gt;NaN&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;false&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;throw TypeError&lt;/td&gt;
+&lt;td&gt;throws TypeError&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;null&lt;/td&gt;
 &lt;td&gt;‘null’&lt;/td&gt;
-&lt;td&gt;NaN&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;false&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;throw TypeError&lt;/td&gt;
+&lt;td&gt;throws TypeError&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;true&lt;/td&gt;
 &lt;td&gt;‘true’&lt;/td&gt;
 &lt;td&gt;1&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;throw TypeError&lt;/td&gt;
+&lt;td&gt;new Boolean(true)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;false&lt;/td&gt;
 &lt;td&gt;‘false’&lt;/td&gt;
 &lt;td&gt;0&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;throw TypeError&lt;/td&gt;
+&lt;td&gt;new Boolean(false)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;‘’(空字符串)&lt;/td&gt;
@@ -148,28 +169,28 @@
 &lt;td&gt;new Nubmer(1)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;{}(任意对象)&lt;/td&gt;
+&lt;td&gt;{} (任意对象)&lt;/td&gt;
 &lt;td&gt;注 1&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/td&gt;
 &lt;td&gt;注 2&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/td&gt;
 &lt;td&gt;true&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&quot;任意数组&quot;&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;[] (任意数组)&lt;/td&gt;
 &lt;td&gt;‘’&lt;/td&gt;
 &lt;td&gt;0&lt;/td&gt;
 &lt;td&gt;true&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&quot;1个数字元素&quot;&gt;9&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;[9] (1个数字元素)&lt;/td&gt;
 &lt;td&gt;‘9’&lt;/td&gt;
 &lt;td&gt;9&lt;/td&gt;
 &lt;td&gt;true&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&quot;其他数组&quot;&gt;‘a’&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;[‘a’] (其他数组)&lt;/td&gt;
 &lt;td&gt;注 3&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/td&gt;
 &lt;td&gt;NaN&lt;/td&gt;
 &lt;td&gt;true&lt;/td&gt;

@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="类型转换表   值 转换为：字符串 数字 布尔值 对象    undefined ‘undefined’ NaN false throw TypeError   null ‘null’ NaN false throw TypeError   true ‘true’ 1  throw TypeError   false ‘false’ 0  throw TypeError   ‘’(空字符串)  0">
+  <meta name="description" content="类型转换表   值 转换为：字符串 数字 布尔值 对象    undefined ‘undefined’ NaN false throws TypeError   null ‘null’ 0 false throws TypeError   true ‘true’ 1  new Boolean(true)   false ‘false’ 0  new Boolean(false)   ‘’(空字符">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript基础学习-类型转换">
 <meta property="og:url" content="http://yoursite.com/2020/05/21/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/index.html">
 <meta property="og:site_name" content="前端搬运工">
-<meta property="og:description" content="类型转换表   值 转换为：字符串 数字 布尔值 对象    undefined ‘undefined’ NaN false throw TypeError   null ‘null’ NaN false throw TypeError   true ‘true’ 1  throw TypeError   false ‘false’ 0  throw TypeError   ‘’(空字符串)  0">
+<meta property="og:description" content="类型转换表   值 转换为：字符串 数字 布尔值 对象    undefined ‘undefined’ NaN false throws TypeError   null ‘null’ 0 false throws TypeError   true ‘true’ 1  new Boolean(true)   false ‘false’ 0  new Boolean(false)   ‘’(空字符">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-21T14:58:48.000Z">
 <meta property="article:modified_time" content="2020-05-21T14:58:48.000Z">
@@ -226,7 +226,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>646</span>
+              <span>677</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -260,28 +260,28 @@
 <td>‘undefined’</td>
 <td>NaN</td>
 <td><strong>false</strong></td>
-<td>throw TypeError</td>
+<td>throws TypeError</td>
 </tr>
 <tr>
 <td>null</td>
 <td>‘null’</td>
-<td>NaN</td>
+<td>0</td>
 <td><strong>false</strong></td>
-<td>throw TypeError</td>
+<td>throws TypeError</td>
 </tr>
 <tr>
 <td>true</td>
 <td>‘true’</td>
 <td>1</td>
 <td></td>
-<td>throw TypeError</td>
+<td>new Boolean(true)</td>
 </tr>
 <tr>
 <td>false</td>
 <td>‘false’</td>
 <td>0</td>
 <td></td>
-<td>throw TypeError</td>
+<td>new Boolean(false)</td>
 </tr>
 <tr>
 <td>‘’(空字符串)</td>
@@ -347,28 +347,28 @@
 <td>new Nubmer(1)</td>
 </tr>
 <tr>
-<td>{}(任意对象)</td>
+<td>{} (任意对象)</td>
 <td>注 1<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></td>
 <td>注 2<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></td>
 <td>true</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="任意数组"></a></td>
+<td>[] (任意数组)</td>
 <td>‘’</td>
 <td>0</td>
 <td>true</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="1个数字元素">9</a></td>
+<td>[9] (1个数字元素)</td>
 <td>‘9’</td>
 <td>9</td>
 <td>true</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="其他数组">‘a’</a></td>
+<td>[‘a’] (其他数组)</td>
 <td>注 3<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></td>
 <td>NaN</td>
 <td>true</td>
@@ -496,7 +496,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

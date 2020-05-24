@@ -21,25 +21,17 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="一名工作时长 2 年多的前端码农，平时看一些基础性的书籍，例如《JavaScript高级程序设计》《你不知道的JavaScript》《JavaScript权威指南》等等。是一个二次元爱好者，喜欢日漫，在学日语，计划去日本自由行。 更多内容，将会后续更新。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+  <meta name="description" content="这里不具体介绍所有的，主要介绍下 instanceof 运算符的运行原理。 关系表达式有：&#x3D;&#x3D;、 &#x3D;&#x3D;&#x3D;、 !&#x3D;、 !&#x3D;&#x3D;、 &lt;、 &gt;、 &lt;&#x3D;、 &gt;&#x3D;、 in、 instanceof in 运算发其中 in 运算符是用来检测对象中是否存在某个属性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript基础学习-关系表达式">
+<meta property="og:url" content="http://yoursite.com/2020/05/24/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E5%85%B3%E7%B3%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.html">
 <meta property="og:site_name" content="前端搬运工">
-<meta property="og:description" content="一名工作时长 2 年多的前端码农，平时看一些基础性的书籍，例如《JavaScript高级程序设计》《你不知道的JavaScript》《JavaScript权威指南》等等。是一个二次元爱好者，喜欢日漫，在学日语，计划去日本自由行。 更多内容，将会后续更新。">
+<meta property="og:description" content="这里不具体介绍所有的，主要介绍下 instanceof 运算符的运行原理。 关系表达式有：&#x3D;&#x3D;、 &#x3D;&#x3D;&#x3D;、 !&#x3D;、 !&#x3D;&#x3D;、 &lt;、 &gt;、 &lt;&#x3D;、 &gt;&#x3D;、 in、 instanceof in 运算发其中 in 运算符是用来检测对象中是否存在某个属性">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-30T02:20:33.000Z">
-<meta property="article:modified_time" content="2020-03-30T02:20:33.000Z">
+<meta property="article:published_time" content="2020-05-24T07:03:10.000Z">
+<meta property="article:modified_time" content="2020-05-24T07:03:10.000Z">
 <meta property="article:author" content="SamoZ">
-<meta property="article:tag" content="前端">
-<meta property="article:tag" content=" JavaScript">
-<meta property="article:tag" content=" HTML5">
-<meta property="article:tag" content=" CSS3">
-<meta property="article:tag" content=" Vue">
-<meta property="article:tag" content=" Angular">
-<meta property="article:tag" content=" React">
-<meta property="article:tag" content=" 博客">
-<meta property="article:tag" content=" Webpack">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
 
 
@@ -50,12 +42,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false
+    isPost : true
   };
 </script>
 
-  <title>关于我 | 前端搬运工
-  </title>
+  <title>JavaScript基础学习-关系表达式 | 前端搬运工</title>
   
 
 
@@ -194,47 +185,118 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
           <div class="content">
             
 
   <div class="posts-expand">
-    
-    
-    
-    <div class="post-block" lang="zh-CN">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">关于我
-</h1>
-
-<div class="post-meta">
+      
   
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/24/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E5%85%B3%E7%B3%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SamoZ">
+      <meta itemprop="description" content="菜鸟前端, 码农">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端搬运工">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaScript基础学习-关系表达式
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-24 15:03:10" itemprop="dateCreated datePublished" datetime="2020-05-24T15:03:10+08:00">2020-05-24</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>269</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>这里不具体介绍所有的，主要介绍下 instanceof 运算符的运行原理。</p>
+<p>关系表达式有：==、 ===、 !=、 !==、 &lt;、 &gt;、 &lt;=、 &gt;=、 in、 instanceof</p>
+<h3 id="in-运算发"><a href="#in-运算发" class="headerlink" title="in 运算发"></a>in 运算发</h3><p>其中 in 运算符是用来检测对象中是否存在某个属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> point = &#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">1</span>&#125;;</span><br><span class="line"><span class="string">'x'</span> <span class="keyword">in</span> point; <span class="comment">// =&gt; true</span></span><br><span class="line"><span class="string">'z'</span> <span class="keyword">in</span> point; <span class="comment">// =&gt; false</span></span><br><span class="line"><span class="string">'toString'</span> <span class="keyword">in</span> point <span class="comment">// =&gt; true: 对象继承了 toString() 方法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> data = [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line"><span class="string">'0'</span> <span class="keyword">in</span> data; <span class="comment">// =&gt; true: 0 在数组的索引中</span></span><br><span class="line"><span class="number">1</span> <span class="keyword">in</span> data; <span class="comment">// =&gt; true: 数字转换成字符串</span></span><br><span class="line"><span class="number">3</span> <span class="keyword">in</span> data; <span class="comment">// =&gt; false: 没有索引为 3 的元素</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="instanceof-运算符"><a href="#instanceof-运算符" class="headerlink" title="instanceof 运算符"></a>instanceof 运算符</h3><p>instanceof 运行原理：为了计算表达式 o instanceof f，JavaScript 首先计算 f.prototype，然后在原型链中查找 o，如果找到，那么 o 是 f 的一个实例，返回 true。<br>如果 f.prototype 不在 o 的原型链中的话，那么 o 不是 f 的实例，返回 false。</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="https://pic.downk.cc/item/5e81aca6504f4bcb041c977a.jpg" alt="SamoZ 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
 </div>
 
-</header>
 
-      
-      
-      
-      <div class="post-body">
-          <p>一名工作时长 2 年多的前端码农，平时看一些基础性的书籍，例如《JavaScript高级程序设计》《你不知道的JavaScript》《JavaScript权威指南》等等。是一个二次元爱好者，喜欢日漫，在学日语，计划去日本自由行。</p>
-<p>更多内容，将会后续更新。</p>
-<!-- 图床 https://www.superbed.cn/ -->
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          </div>
 
-      </div>
-      
-      
-      
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/22/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E4%BD%9C%E7%94%A8%E5%9F%9F/" rel="prev" title="JavaScript基础学习-作用域">
+      <i class="fa fa-chevron-left"></i> JavaScript基础学习-作用域
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
+      </footer>
     
+  </article>
+  
+  
+  
 
-    
-    
-    
   </div>
 
 
@@ -286,6 +348,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#in-运算发"><span class="nav-number">1.</span> <span class="nav-text">in 运算发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#instanceof-运算符"><span class="nav-number">2.</span> <span class="nav-text">instanceof 运算符</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
