@@ -21,25 +21,17 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="12var v &#x3D; &#39;hello world&#39;;alert(v);  弹出 Hello World 12345var v &#x3D; &#39;hello world&#39;;(function() &amp;#123;    alert(v);    var v &#x3D; &#39;I love you&#39;;&amp;#125;)(); 也是弹出 hello world">
+  <meta name="description" content="12 原型每一个 JavaScript 对象(除了 null)都和另一个对象相关联。“另一个”对象就是我们所熟知的原型，每一个对象都从原型继承属性。 所有通过对象直接量创建的对象都具有同一个原型对象，并且可以通过 JavaScript 代码 Object.prototype 获取对原型对象的引用。通过 new 和构造函数调用创建的对象的原型就是构造函数的 prototype 属性的值。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于JavaScript的变量提升">
-<meta property="og:url" content="http://yoursite.com/2020/03/30/%E5%85%B3%E4%BA%8EJavaScript%E7%9A%84%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87/index.html">
+<meta property="og:title" content="JavaScript基础学习-对象">
+<meta property="og:url" content="http://yoursite.com/2020/05/24/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="前端搬运工">
-<meta property="og:description" content="12var v &#x3D; &#39;hello world&#39;;alert(v);  弹出 Hello World 12345var v &#x3D; &#39;hello world&#39;;(function() &amp;#123;    alert(v);    var v &#x3D; &#39;I love you&#39;;&amp;#125;)(); 也是弹出 hello world">
+<meta property="og:description" content="12 原型每一个 JavaScript 对象(除了 null)都和另一个对象相关联。“另一个”对象就是我们所熟知的原型，每一个对象都从原型继承属性。 所有通过对象直接量创建的对象都具有同一个原型对象，并且可以通过 JavaScript 代码 Object.prototype 获取对原型对象的引用。通过 new 和构造函数调用创建的对象的原型就是构造函数的 prototype 属性的值。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-30T14:20:29.000Z">
-<meta property="article:modified_time" content="2020-03-30T14:20:29.000Z">
+<meta property="article:published_time" content="2020-05-24T14:28:45.000Z">
+<meta property="article:modified_time" content="2020-05-24T14:28:45.000Z">
 <meta property="article:author" content="SamoZ">
-<meta property="article:tag" content="前端">
-<meta property="article:tag" content=" JavaScript">
-<meta property="article:tag" content=" HTML5">
-<meta property="article:tag" content=" CSS3">
-<meta property="article:tag" content=" Vue">
-<meta property="article:tag" content=" Angular">
-<meta property="article:tag" content=" React">
-<meta property="article:tag" content=" 博客">
-<meta property="article:tag" content=" Webpack">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
 
 
@@ -54,7 +46,7 @@
   };
 </script>
 
-  <title>关于JavaScript的变量提升 | 前端搬运工</title>
+  <title>JavaScript基础学习-对象 | 前端搬运工</title>
   
 
 
@@ -202,7 +194,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/30/%E5%85%B3%E4%BA%8EJavaScript%E7%9A%84%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/24/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E5%AF%B9%E8%B1%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -215,7 +207,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          关于JavaScript的变量提升
+          JavaScript基础学习-对象
         </h1>
 
         <div class="post-meta">
@@ -225,7 +217,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-03-30 22:20:29" itemprop="dateCreated datePublished" datetime="2020-03-30T22:20:29+08:00">2020-03-30</time>
+              <time title="创建时间：2020-05-24 22:28:45" itemprop="dateCreated datePublished" datetime="2020-05-24T22:28:45+08:00">2020-05-24</time>
             </span>
 
           <br>
@@ -234,7 +226,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>472</span>
+              <span>266</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -253,30 +245,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var v &#x3D; &#39;hello world&#39;;</span><br><span class="line">alert(v);</span><br></pre></td></tr></table></figure>
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><p>每一个 JavaScript 对象(除了 null)都和另一个对象相关联。“另一个”对象就是我们所熟知的原型，每一个对象都从原型继承属性。</p>
+<p>所有通过对象直接量创建的对象都具有同一个原型对象，并且可以通过 JavaScript 代码 Object.prototype 获取对原型对象的引用。<br>通过 new 和构造函数调用创建的对象的原型就是构造函数的 prototype 属性的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> newObj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"></span><br><span class="line">obj.__proto__ === <span class="built_in">Object</span>.prototype <span class="comment">// =&gt; true</span></span><br><span class="line">newObj.__proto__ === <span class="built_in">Object</span>.prototype <span class="comment">// =&gt; true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="keyword">var</span> newArr = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"></span><br><span class="line">arr.__proto__ === <span class="built_in">Array</span>.prototype <span class="comment">// =&gt; true</span></span><br><span class="line">newArr.__proto__ === <span class="built_in">Array</span>.prototype <span class="comment">// =&gt; true</span></span><br></pre></td></tr></table></figure>
 
-<p>弹出 Hello World</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var v &#x3D; &#39;hello world&#39;;</span><br><span class="line">(function() &#123;</span><br><span class="line">    alert(v);</span><br><span class="line">    var v &#x3D; &#39;I love you&#39;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-<p>也是弹出 hello world</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var v &#x3D; &#39;hello world&#39;;</span><br><span class="line">(function() &#123;</span><br><span class="line">    alert(v);</span><br><span class="line">    var v &#x3D; &#39;i love you&#39;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-<p>弹出 undefined</p>
-<p>这里隐藏了一个陷阱，就是JavaScript中的变量提升</p>
-<p>它相当于</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var v &#x3D; &#39;hello world&#39;;</span><br><span class="line">(function() &#123;</span><br><span class="line">    var v;</span><br><span class="line">    alert(v);</span><br><span class="line">    v &#x3D; &#39;i love you&#39;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-
-<p>变量提升，简单的理解，就是把变量提升到函数的最顶端的地方。需要说明的是，变量提升只是提升变量的声明，并不是把赋值也提升上来，没有赋值的变量初始值是undefined。所以上面就出现了声明undefined的var，因为赋值在后面，声明提升在了前面。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">    if (false) &#123;</span><br><span class="line">        var x &#x3D; 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return;</span><br><span class="line">    var y &#x3D; 1;</span><br><span class="line">&#125;</span><br><span class="line">function foo() &#123;</span><br><span class="line">    var x, y;</span><br><span class="line">    if (false) &#123;</span><br><span class="line">        x &#x3D; 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return;</span><br><span class="line">    y &#x3D; 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>还有一点注意的是因为JavaScript是函数级作用域，只有函数才会创建新的作用域，而不像其他语言有块级作用域，例如块，就像if语句，在上面的例子中，不管会不会进入if代码块，函数声明都会提升到当前作用域的顶部，得到执行，在JavaScript中并不会创建一个新的作用域。<br>从这里我们应该体会到，当我们在写JavaScript code 的时候，我们需要把变量放到块级作用域的顶端，不然容易发生一些意想不到的错误。<br>注意：ES5只有全局作用域和函数作用域，没有块级作用域。</p>
-<p>还有一种就是函数提升</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function myTest() &#123;</span><br><span class="line">    foo();</span><br><span class="line">    function foo() &#123;</span><br><span class="line">        alert(&#39;hello world&#39;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">myTest();</span><br></pre></td></tr></table></figure>
-
-<p>弹出 ‘hello world’ // 这里函数声明提升</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function myTest() &#123;</span><br><span class="line">    foo();</span><br><span class="line">    var foo &#x3D; function() &#123;</span><br><span class="line">        alert(&#39;我不会被弹出&#39;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">myTest();</span><br></pre></td></tr></table></figure>
-
-<p>报错：foo不是函数<br>相当于</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function myTest() &#123;</span><br><span class="line">    var foo;</span><br><span class="line">    foo();</span><br><span class="line">    foo &#x3D; function() &#123;</span><br><span class="line">        alert(&#39;我不会被弹出&#39;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">myTest();</span><br></pre></td></tr></table></figure>
-
+<p>注意：没有原型的对象不多，Object.prototype 就是其中之一。它不继承任何属性。</p>
+<p>另外，还可以通过 Objec.create() 方法基于一个对象的原型，创建一个新对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o1 = <span class="built_in">Object</span>.create(&#123;<span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span>&#125;); <span class="comment">// o1 继承了属性 x 和 y</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o2 = <span class="built_in">Object</span>.create(<span class="literal">null</span>); <span class="comment">// 通过传入 null，来创建一个不继承任何属性和方法的对象</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o3 = <span class="built_in">Object</span>.create(<span class="built_in">Object</span>.prototype); <span class="comment">// o3 和 &#123;&#125;、new Object() 一样，创建了一个空对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * inherit() 返回一个继承继承自对象 p 的属性的新对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">inherit</span>(<span class="params">p</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p == <span class="literal">null</span>) <span class="keyword">throw</span> <span class="built_in">TypeError</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">Object</span>.create) <span class="keyword">return</span> <span class="built_in">Object</span>.create(p);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> t = <span class="keyword">typeof</span> p;</span><br><span class="line">    <span class="keyword">if</span>(t !== <span class="string">'object'</span> &amp;&amp; t !== <span class="string">'function'</span>) <span class="keyword">throw</span> <span class="built_in">TypeError</span>();</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">    f.prototype = p;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> f();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -299,6 +275,10 @@
 
 
       <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          </div>
 
         
 
@@ -306,13 +286,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/30/%E5%85%B3%E4%BA%8EJavaScript%E7%9A%84%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E5%92%8C%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="prev" title="关于JavaScript的函数声明和函数表达式">
-      <i class="fa fa-chevron-left"></i> 关于JavaScript的函数声明和函数表达式
+    <a href="/2020/05/24/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E5%85%B3%E7%B3%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="prev" title="JavaScript基础学习-关系表达式">
+      <i class="fa fa-chevron-left"></i> JavaScript基础学习-关系表达式
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/04/02/Cookie-%E5%92%8C-SameSite-%E5%B1%9E%E6%80%A7/" rel="next" title="Cookie 和 SameSite 属性">
-      Cookie 和 SameSite 属性 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -372,6 +349,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#原型"><span class="nav-number">1.</span> <span class="nav-text">原型</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
