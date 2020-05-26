@@ -110,6 +110,74 @@ for/in 循环可以遍历对象的所有**可枚举属性**(包括自身属性�
 
 Object.getOwnPropertyNames() 返回对象中的所有自身属性的名称，包括不可枚举属性。
 
+### 属性的特性
+
+数据属性的四个特性：值(value)、可写(writable)、可配置(configurable)、可枚举(enumerable)
+存取器属性的四个特性：读取(get)、写入(set)、可配置、可枚举
+
+Object.getOwnPropertyDescriptor() 可以获取某个对象自有属性的属性描述符：
+
+```javascript
+Object.getOwnPropertyDescriptor({x: 1}, 'x'); // {value: 1, writable: true, configurable: true, enumerable: true}
+
+function random = {
+   get octet() { return Math.floor(Math.random() * 256); }
+}
+Object.getOwnPropertyDescriptor(random, 'octet'); // {get: /* func */, set: undefined, configurable: true, enumerable: true}
+
+// 对于不存在的属性和继承属性，返回 undefined
+Object.getOwnPropertyDescriptor({}, 'x'); // undefined
+Object.getOwnPropertyDescriptor({}, 'toString'); // undefined, 继承属性
+```
+
+如果要想获取继承属性的特性，需要遍历原型链，使用 Object.getPropertyOf()。
+
+```javascript
+Object.getPropertyOf({});
+```
+
+如果想要设置属性的特性，或者想让某个新建属性具有某种特性，可以通过调用 Object.defineProperty(要修改的对象, 要创建或者修改的属性名称，属性描述符对象)
+
+注意：此方法不能修改继承属性
+
+```javascript
+var o = {};
+
+Object.defineProperty({}, 'x', {
+   value: 1,
+   wriable: true,
+   configurable: true,
+   enumerable: false
+})
+
+//属性存在，但是不可以枚举
+o.x; // => 1
+Object.keys(o); // => []
+
+// 现在对属性 x 做修改，让它变成只读
+Object.defineProperty({}, 'x', { writable: false });
+
+o.x = 2; // 无法改变且不会报错，在严格模式下会抛出类型错误异常
+o.x = 1;
+
+// 但属性却是可以配置的，因此通过下面这种方式，还是可以改变值的
+Object.defineProperty({}, 'x', { value: 2 });
+o.x; // => 2
+
+// 现在将 x 从数据属性改为存取器属性
+Object.defineProperty({}, 'x', { get: function() { return 0; } });
+o.x; // => 0
+```
+
+如果通过 Object.defineProperty() 新创建了一个值，那么它的默认特性值是 undefined 或者 false
+
+```javascript
+var o = {};
+
+Object.defineProperty(o, 'x', {});
+Object.getOwnPropertyDescriptor(o, 'x'); // {value: undefined, writable: false, enumerable: false, configurable: false}
+```
+
 ```javascript
 
 ```
