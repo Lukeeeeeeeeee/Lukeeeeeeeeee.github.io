@@ -178,6 +178,66 @@ Object.defineProperty(o, 'x', {});
 Object.getOwnPropertyDescriptor(o, 'x'); // {value: undefined, writable: false, enumerable: false, configurable: false}
 ```
 
+如果同时修改多个值，需要使用 Object.defineProperties(要修改的对象, 映射表)
+
+```javascript
+var p = Object.definedProperties({}, {
+   x: {value: 1, writable: true, configurable: true, enumerable: true},
+   y: {value: 1, writable: true, configurable: true, enumerable: true},
+   r: {
+      get: function() {
+         return Math.sqrt(this.x * this.x + this.y * this.y)
+      },
+      configurable: true,
+      enumerable: true
+   }
+})
+```
+
+关于 Object.defineProperty() 和 Object.defineProperties() 相关规则：
+
+- 如果对象是不可扩展的，则可以编辑已有的自有属性，但不能给它添加新属性
+- 如果属性是不可配置的，则不能修改它的可配置性和可枚举性
+- 如果存取器属性是不可配置的，则不能修改其 getter 和 setter 方法，也不能将它转换成数据属性
+- 如果数据属性是不可配置的，则不能将它转换成存取器属性，也不能将它的可写性从 false 修改为 true，但可以从 true 修改为 false
+- 如果数据属性是不可配置且不可写的，则不能修改它的值。
+- 如果数据属性是可配置但不可写，属性的值确实可以修改的(因为是可以配置的，所以先将它标记为可写的，然后修改它的值，最后在转换成不可写的)
+
+简单概括：
+
+1. 可写性控制着对值特性的修改
+2. 可配置性控制着对其他特性(包括属性是否可以删除)的修改
+3. 如果属性可配置的话，则可以修改不可写属性的值
+4. 如果属性是不可配置的，则仍然可以将可写属性修改为不可写属性
+
+根据这些了解的内容，我们创建一个可以复制属性的特性的函数：
+
+```javascript
+/**
+ * 给 Object.prototype 添加一个不可枚举的 extend() 方法
+ * 这个方法继承自调用它的对象，将作为参数传递的对象的属性一一复制
+ * 除了值以外，也复制属性的所有特性，除非在目标对象中存在同名的属性，
+ * 参数对象的所有自有对象(包括不可枚举的属性)也会一一复制
+ */
+Object.defineProperty(Object.prototype, 'extend', {
+   writable: true,
+   configurable: true,
+   enumerable: false,
+   value: function(o) {
+      // 得到所有的自有属性，包括不可枚举属性
+      var names = Object.getOwnPropertyNames();
+      for (var i = 0; i < names.length; i++) {
+         // 如果属性已经存在，则跳过
+         if (names[i] in this) continue;
+         // 获取 o 中的属性的描述符
+         var desc = Object.getOwnPropertyDescriptor(o, names[i]);
+         // 用它给 this 创建一个属性
+         Object.defineProperty(this, names[i], desc);
+      }
+   }
+})
+```
+
 ```javascript
 
 ```
