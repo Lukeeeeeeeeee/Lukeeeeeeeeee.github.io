@@ -272,6 +272,28 @@
 <p>如果通过 Object.defineProperty() 新创建了一个值，那么它的默认特性值是 undefined 或者 false</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(o, <span class="string">'x'</span>, &#123;&#125;);</span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(o, <span class="string">'x'</span>); <span class="comment">// &#123;value: undefined, writable: false, enumerable: false, configurable: false&#125;</span></span><br></pre></td></tr></table></figure>
 
+<p>如果同时修改多个值，需要使用 Object.defineProperties(要修改的对象, 映射表)</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="built_in">Object</span>.definedProperties(&#123;&#125;, &#123;</span><br><span class="line">   x: &#123;<span class="attr">value</span>: <span class="number">1</span>, <span class="attr">writable</span>: <span class="literal">true</span>, <span class="attr">configurable</span>: <span class="literal">true</span>, <span class="attr">enumerable</span>: <span class="literal">true</span>&#125;,</span><br><span class="line">   y: &#123;<span class="attr">value</span>: <span class="number">1</span>, <span class="attr">writable</span>: <span class="literal">true</span>, <span class="attr">configurable</span>: <span class="literal">true</span>, <span class="attr">enumerable</span>: <span class="literal">true</span>&#125;,</span><br><span class="line">   r: &#123;</span><br><span class="line">      <span class="keyword">get</span>: function() &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(<span class="keyword">this</span>.x * <span class="keyword">this</span>.x + <span class="keyword">this</span>.y * <span class="keyword">this</span>.y)</span><br><span class="line">      &#125;,</span><br><span class="line">      configurable: <span class="literal">true</span>,</span><br><span class="line">      enumerable: <span class="literal">true</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>关于 Object.defineProperty() 和 Object.defineProperties() 相关规则：</p>
+<ul>
+<li>如果对象是不可扩展的，则可以编辑已有的自有属性，但不能给它添加新属性</li>
+<li>如果属性是不可配置的，则不能修改它的可配置性和可枚举性</li>
+<li>如果存取器属性是不可配置的，则不能修改其 getter 和 setter 方法，也不能将它转换成数据属性</li>
+<li>如果数据属性是不可配置的，则不能将它转换成存取器属性，也不能将它的可写性从 false 修改为 true，但可以从 true 修改为 false</li>
+<li>如果数据属性是不可配置且不可写的，则不能修改它的值。</li>
+<li>如果数据属性是可配置但不可写，属性的值确实可以修改的(因为是可以配置的，所以先将它标记为可写的，然后修改它的值，最后在转换成不可写的)</li>
+</ul>
+<p>简单概括：</p>
+<ol>
+<li>可写性控制着对值特性的修改</li>
+<li>可配置性控制着对其他特性(包括属性是否可以删除)的修改</li>
+<li>如果属性可配置的话，则可以修改不可写属性的值</li>
+<li>如果属性是不可配置的，则仍然可以将可写属性修改为不可写属性</li>
+</ol>
+<p>根据这些了解的内容，我们创建一个可以复制属性的特性的函数：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 给 Object.prototype 添加一个不可枚举的 extend() 方法</span></span><br><span class="line"><span class="comment"> * 这个方法继承自调用它的对象，将作为参数传递的对象的属性一一复制</span></span><br><span class="line"><span class="comment"> * 除了值以外，也复制属性的所有特性，除非在目标对象中存在同名的属性，</span></span><br><span class="line"><span class="comment"> * 参数对象的所有自有对象(包括不可枚举的属性)也会一一复制</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(<span class="built_in">Object</span>.prototype, <span class="string">'extend'</span>, &#123;</span><br><span class="line">   writable: <span class="literal">true</span>,</span><br><span class="line">   configurable: <span class="literal">true</span>,</span><br><span class="line">   enumerable: <span class="literal">false</span>,</span><br><span class="line">   value: <span class="function"><span class="keyword">function</span>(<span class="params">o</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 得到所有的自有属性，包括不可枚举属性</span></span><br><span class="line">      <span class="keyword">var</span> names = <span class="built_in">Object</span>.getOwnPropertyNames();</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; names.length; i++) &#123;</span><br><span class="line">         <span class="comment">// 如果属性已经存在，则跳过</span></span><br><span class="line">         <span class="keyword">if</span> (names[i] <span class="keyword">in</span> <span class="keyword">this</span>) <span class="keyword">continue</span>;</span><br><span class="line">         <span class="comment">// 获取 o 中的属性的描述符</span></span><br><span class="line">         <span class="keyword">var</span> desc = <span class="built_in">Object</span>.getOwnPropertyDescriptor(o, names[i]);</span><br><span class="line">         <span class="comment">// 用它给 this 创建一个属性</span></span><br><span class="line">         <span class="built_in">Object</span>.defineProperty(<span class="keyword">this</span>, names[i], desc);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>JavaScript</tag>
