@@ -136,6 +136,17 @@ Object.getOwnPropertyDescriptor({}, 'toString'); // undefined, 继承属性
 Object.getPropertyOf({});
 ```
 
+要想检测一个对象是否是另一个对象的原型(或处于原型链)，可以通过 Object.isPropertyOf() 方法。
+
+```javascript
+// 通过 p.isPropertyOf(o) 来检测 p 是否是 o 的原型
+var p = {x: 1};
+var o = Object.create(p);
+p.isPropertyOf(o); // => true: o 继承 p
+Object.prototype.isPropertyOf(o) // => true: p 继承自 Object.prototype
+```
+
+
 如果想要设置属性的特性，或者想让某个新建属性具有某种特性，可以通过调用 Object.defineProperty(要修改的对象, 要创建或者修改的属性名称，属性描述符对象)
 
 注意：此方法不能修改继承属性
@@ -236,6 +247,72 @@ Object.defineProperty(Object.prototype, 'extend', {
       }
    }
 })
+```
+
+### 类属性
+
+对象的类属性是一个字符串，用以表示对象的类型信息。格式：[object class]。以下函数就可以返回传递给它的任意对象的类：
+
+```javascript
+function classof(o) {
+   if (o === null) return 'Null';
+   if (o === undefined) return 'Undefined';
+   return Object.prototype.toString.call(o).slice(8, -1);
+}
+
+// 通过对象直接量和 Object.create() 方法创建的对象的类属性是 'Object'，同时那些自定义的构造函数创建的对象也是 'Object'，因此对于自定义的类，没办法通过类属性区分对象的类：
+classof(null);          // => 'Null'
+classof(undefined);     // => 'Undefined'
+classof(1);             // => 'Number'
+classof('');            // => 'String'
+classof(false);         // => 'Boolean'
+classof({});            // => 'Object'
+classof([]);            // => 'Array'
+classof(/./);           // => 'Regexp'
+classof(new Date());    // => 'Date'
+classof(window);        // => 'Window'
+
+function f() {};
+classof(new f());       // => 'Object'
+
+```
+
+注意：除了数字，字符串、布尔值和对象是可以直接调用 toString() 方法的。
+
+```javascript
+1.toString(); // 报错，因为 '.' 被当作小数点
+
+var a = 1;
+a.toString(); // => '1'
+
+''.toString(); // => ""
+true.toString(); // => 'true'
+var o = Object.seal(
+   Object.create(
+      Object.freeze({x: 1}),
+      { y: { value: 2, writable: true } }
+   )
+)
+```
+
+### 可扩展性
+
+通过 Object.isExtensible() 方法判断该对象是否是可扩展的。
+
+如果想将对象转换为不可扩展的，可以调用 Object.preventExtensions() 方法，将待转换的对象作为参数传递进去。
+注意，一旦将对象转换为不可扩展的，就无法再将其转换成可扩展的了。
+同样需要注意的是，Object.preventExtensions() 影响只是对象本身的可扩展性。如果给一个不可扩展的对象的原型添加属性，不可扩展的对象还是会继承这些新属性。
+
+```javascript
+const object1 = {};
+Object.preventExtensions(object1);
+try {
+   Object.defineProperty(object1, 'property1', {
+      value: 42
+   })
+} catch(e) {
+   console.log(e); // TypeError: Cannot define property property1, object is not extensible
+}
 ```
 
 ```javascript
