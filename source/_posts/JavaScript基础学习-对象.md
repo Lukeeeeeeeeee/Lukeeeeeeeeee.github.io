@@ -301,10 +301,11 @@ var o = Object.seal(
 
 如果想将对象转换为不可扩展的，可以调用 Object.preventExtensions() 方法，将待转换的对象作为参数传递进去。
 注意，一旦将对象转换为不可扩展的，就无法再将其转换成可扩展的了。
+一般来说，不可扩展对象的属性仍然是可被删除的。
 同样需要注意的是，Object.preventExtensions() 影响只是对象本身的可扩展性。如果给一个不可扩展的对象的原型添加属性，不可扩展的对象还是会继承这些新属性。
 
 ```javascript
-const object1 = {};
+const object1 = {x: 1};
 Object.preventExtensions(object1);
 try {
    Object.defineProperty(object1, 'property1', {
@@ -313,8 +314,112 @@ try {
 } catch(e) {
    console.log(e); // TypeError: Cannot define property property1, object is not extensible
 }
+
+delete object1.x; // => true
+
+object1.x; // => undefined
 ```
 
-```javascript
+通过 Object.isSealed() 来检测对象是否是封闭的。
 
+Object.seal() 和 Object.preventExtensions() 相似，但是 Object.seal() 还将对象设置为不可配置的。
+也就是说不能给这个对象添加新属性，同时它已有的属性也不能删除和配置，不过它已有的属性是可写的，则仍然可以设置。
+
+```javascript
+const object1 = {x: 1};
+var o = Object.seal(object1);
+object1.x = 33;
+console.log(object1.x); // => 33
+
+delete object1.x;
+console.log(object.x); // => 33
+```
+
+通过 Object.isFrozen() 来检测对象是否冻结。
+
+Object.freeze() 方法可以冻结一个对象。一个被冻结的对象再也不能被修改；不能像这个对象添加属性、不能删除已有的属性，不能修改该对象已有的属性的可配置性、可扩展性、可枚举性以及不可修改已有属性的值。
+此外，冻结一个对象后该对象的原型也不能被修改。(如果对象的存取器属性具有 setter 方法，存取器则不受影响，仍然可以给属性赋值调用它们)。
+
+```javascript
+var obj = {x: 1};
+
+Object.freeze(obj);
+
+obj.x = 33; // Throws an error in strict mode
+
+console.log(obj.x); // => 1
+```
+
+### 对象的其他方法
+
+Object.assign() 方法会浅拷贝一个对象
+
+Object.entries() 方法会返回一个给定对象自身可枚举属性的键值对数组，与 for...in 的区别是不会枚举原型中的属性：
+
+```javascript
+var o = {
+   x: 1,
+   y: 2
+}
+
+console.log(Object.entries(o)) // [ [ 'x', 1 ], [ 'y', 2 ] ]
+
+for (let [key, value] of (Object.entries(o))) {
+   console.log(`${key}, ${value}`)
+}
+// x, 1
+// y, 2
+```
+
+Object.toString() 方法返回一个该对象的字符串
+
+Object.toLocaleString() 方法返回一个表示这个对象的本地化字符串
+
+Object.is() 方法判断两个值是否是相同的值。
+
+判断依据：
+
+- 两个值都是 undefined
+- 两个值都是 null
+- 两个值都是 true 或 false
+- 两个值是由相同个数的字符按照相同的顺序组成的字符串
+- 两个值指向同一个对象
+- 两个值都是数字并且
+   - 都是正零 +0
+   - 都是负零 -0
+   - 都是 NaN
+   - 都是除零和 NaN 外的其它同一个数字
+
+```javascript
+Object.is('foo', 'foo');   // => true
+Object.is(window, window); // => true
+
+Object.is('foo', 'bar');   // => false
+Object.is([], []);         // => false
+
+var foo = {a: 1};
+var bar = {a: 1};
+Object.is(foo, foo);       // => true
+Object.is(foo, bar);       // => false
+
+Object.is(NaN, NaN);       // => true
+NaN == NaN;                // => false
+NaN === NaN;               // => false
+
+// 特例
+Object.is(0, -0);          // => false
+Object.is(0, +0);          // => true
+Object.is(-0, -0);         // => true
+Object.is(NaN, 0/0);       // => true
+0 == -0;                   // => true
+0 === -0;                  // => true
+```
+
+Object.values() 方法返回一个给定对象自身的所有可枚举属性值的数组，不可枚举属性不会获取到。
+
+```javascript
+var obj = { foo: 'bar', baz: 42 };
+console.log(Object.values(obj));    // ['bar', 42]
+
+console.log(Object.values('foo'));  // ['f', 'o', 'o']
 ```
