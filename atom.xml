@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-24T14:28:45.000Z</updated>
+  <updated>2020-06-01T14:09:13.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript基础学习-数组</title>
+    <link href="http://yoursite.com/2020/06/01/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E6%95%B0%E7%BB%84/"/>
+    <id>http://yoursite.com/2020/06/01/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E6%95%B0%E7%BB%84/</id>
+    <published>2020-06-01T14:09:13.000Z</published>
+    <updated>2020-06-01T14:09:13.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;数组方法&quot;&gt;&lt;a href=&quot;#数组方法&quot; class=&quot;headerlink&quot; title=&quot;数组方法&quot;&gt;&lt;/a&gt;数组方法&lt;/h3&gt;&lt;p&gt;这里不对每个方法进行讲解。&lt;/p&gt;
+&lt;p&gt;join() 方法可以将数组所有的元素转化为字符串并拼接在一起，返回最后生成的字符串。&lt;/p&gt;
+&lt;p&gt;reverse() 方法可以将数组颠倒顺序，返回逆向的数组。注意：它会改变原数组。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript基础学习-对象</title>
