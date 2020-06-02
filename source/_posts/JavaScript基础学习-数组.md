@@ -18,7 +18,7 @@ concat() 方法合并数组，返回一个新的数组。
 
 slice() 方法返回指定数组的一个片段或子数组。注意：相当于浅拷贝一个数组。
 
-splice() 方法是在数组中插入或者删除元素的通用方法。注意：会改变原数组。
+splice() 方法是在数组中插入或者删除元素的通用方法。注意：会改变原数组，第二个参数如果是 -1 代表最后一个元素。
 
 push() 和 pop() 方法前一个是向数组的尾部添加元素，后一个方法是删除数组的最后一个元素。注意：都会改变原数组。
 
@@ -36,6 +36,14 @@ every() 和 some() 方法前一个是当且仅当数组中的所有元素都满�
 
 reduce() 和 reduceRight() 方法将数组元素进行组合，生成单个值。对于空数组，reduce() 方法会导致类型错误异常。reduceRight() 是从右向左处理数组。
 
-```javascript
+indexOf() 和 lastIndexOf() 方法所有整个数组，返回找到的第一个元素的索引，如果没有找到则返回 -1。前一个方法从头到尾，后一个方法则相反。
 
+isArray() 方法判断是否是数组。
+
+实现一个 Array.isArray() 方法：
+
+```javascript
+var isArray = Function.isArray || function (o) {
+    return typeof o === 'object' && Object.prototype.toString.call(o) === '[object Array]';
+}
 ```
