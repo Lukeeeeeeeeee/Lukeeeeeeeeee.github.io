@@ -230,6 +230,15 @@
       </tags>
   </entry>
   <entry>
+    <title>JavaScript基础学习-函数</title>
+    <url>/2020/06/02/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h3 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h3><p>关于 this：如果嵌套函数作为方法调用，其 this 值指向调用它的对象。如果嵌套函数作为函数调用，其 this 值不是全局对象就是 undefined。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript基础学习-对象</title>
     <url>/2020/05/24/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><p>每一个 JavaScript 对象(除了 null)都和另一个对象相关联。“另一个”对象就是我们所熟知的原型，每一个对象都从原型继承属性。</p>
@@ -355,7 +364,7 @@
 <p>sort() 方法将数组排序，返回排序后的数组。注意：第一个参数与第二个参数相减，小于0，排在前面，反之排在后面，等于0，则不需要变换。undefined 排在最后。</p>
 <p>concat() 方法合并数组，返回一个新的数组。</p>
 <p>slice() 方法返回指定数组的一个片段或子数组。注意：相当于浅拷贝一个数组。</p>
-<p>splice() 方法是在数组中插入或者删除元素的通用方法。注意：会改变原数组。</p>
+<p>splice() 方法是在数组中插入或者删除元素的通用方法。注意：会改变原数组，第二个参数如果是 -1 代表最后一个元素。</p>
 <p>push() 和 pop() 方法前一个是向数组的尾部添加元素，后一个方法是删除数组的最后一个元素。注意：都会改变原数组。</p>
 <p>unshift() 和 shift() 方法前一个是向数组的头部添加元素，后一个是删除数组的第一个元素并返回。注意：都会改变原数组。</p>
 <p>以下也是数组的方法，是 ECMAScript5 新增的方法。注意：大多数方法的第一个参数接受一个函数，函数的参数通常为数组元素、索引和数组本省</p>
@@ -364,7 +373,11 @@
 <p>filter() 方法返回符合传入条件为 true 的数组。注意：filter() 会跳过稀疏数组中缺少的元素。</p>
 <p>every() 和 some() 方法前一个是当且仅当数组中的所有元素都满足条件才返回 true，后一个当数组中至少存在一个符合条件的元素就会返回 true；并且当且仅当数组中的所有元素都不符合条件才返回 false。注意：对于空数组，every() 返回 true，some() 返回 false。</p>
 <p>reduce() 和 reduceRight() 方法将数组元素进行组合，生成单个值。对于空数组，reduce() 方法会导致类型错误异常。reduceRight() 是从右向左处理数组。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+<p>indexOf() 和 lastIndexOf() 方法所有整个数组，返回找到的第一个元素的索引，如果没有找到则返回 -1。前一个方法从头到尾，后一个方法则相反。</p>
+<p>isArray() 方法判断是否是数组。</p>
+<p>实现一个 Array.isArray() 方法：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> isArray = <span class="built_in">Function</span>.isArray || <span class="function"><span class="keyword">function</span> (<span class="params">o</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> o === <span class="string">'object'</span> &amp;&amp; <span class="built_in">Object</span>.prototype.toString.call(o) === <span class="string">'[object Array]'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
       <tags>
         <tag>JavaScript</tag>
       </tags>
