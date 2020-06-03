@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-06-02T14:23:07.000Z</updated>
+  <updated>2020-06-03T08:42:31.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GitHub加载过慢或图片加载失败</title>
+    <link href="http://yoursite.com/2020/06/03/Github%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+    <id>http://yoursite.com/2020/06/03/Github%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</id>
+    <published>2020-06-03T08:42:31.000Z</published>
+    <updated>2020-06-03T08:42:31.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;通过 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cuaXBhZGRyZXNzLmNvbS8=&quot; title=&quot;https://www.ipaddress.com/&quot;&gt;ip地址查询&lt;i class=&quot;fa fa-external-link&quot;&gt;&lt;/i&gt;&lt;/span&gt; 查看 GitHub 的 ip。&lt;/p&gt;
+&lt;h3 id=&quot;Mac&quot;&gt;&lt;a href=&quot;#Mac&quot; class=&quot;headerlink&quot; title=&quot;Mac&quot;&gt;&lt;/a&gt;Mac&lt;/h3&gt;&lt;p&gt;在 Mac 下执行 &lt;code&gt;sudo vim /etc/hosts&lt;/code&gt; 命令修改 hosts 文件。随便按一个键，进入 INSERT 模式，在最后一行添加如下信息：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# GitHub Start&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;140.82.114.4      github.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;140.82.114.20     gist.github.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;140.82.113.4      gist.github.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;151.101.184.133    assets-cdn.github.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;151.101.184.133    raw.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;151.101.184.133    gist.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;151.101.184.133    cloud.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;151.101.184.133    camo.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;151.101.184.133    avatars0.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;199.232.68.133     avatars0.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;199.232.28.133     avatars1.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;151.101.184.133    avatars1.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;151.101.184.133    avatars2.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;199.232.28.133     avatars2.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;151.101.184.133    avatars3.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;199.232.68.133     avatars3.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;151.101.184.133    avatars4.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;199.232.68.133     avatars4.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;151.101.184.133    avatars5.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;199.232.68.133     avatars5.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;151.101.184.133    avatars6.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;199.232.68.133     avatars6.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;151.101.184.133    avatars7.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;199.232.68.133     avatars7.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;151.101.184.133    avatars8.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;199.232.68.133     avatars8.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# GitHub End&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="GitHub" scheme="http://yoursite.com/tags/GitHub/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript基础学习-函数</title>

@@ -166,6 +166,21 @@
       </tags>
   </entry>
   <entry>
+    <title>GitHub加载过慢或图片加载失败</title>
+    <url>/2020/06/03/Github%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>通过 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaXBhZGRyZXNzLmNvbS8=" title="https://www.ipaddress.com/">ip地址查询<i class="fa fa-external-link"></i></span> 查看 GitHub 的 ip。</p>
+<h3 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h3><p>在 Mac 下执行 <code>sudo vim /etc/hosts</code> 命令修改 hosts 文件。随便按一个键，进入 INSERT 模式，在最后一行添加如下信息：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># GitHub Start</span><br><span class="line">140.82.114.4      github.com</span><br><span class="line">140.82.114.20     gist.github.com</span><br><span class="line">140.82.113.4      gist.github.com</span><br><span class="line"></span><br><span class="line">151.101.184.133    assets-cdn.github.com</span><br><span class="line">151.101.184.133    raw.githubusercontent.com</span><br><span class="line">151.101.184.133    gist.githubusercontent.com</span><br><span class="line">151.101.184.133    cloud.githubusercontent.com</span><br><span class="line">151.101.184.133    camo.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars0.githubusercontent.com</span><br><span class="line">199.232.68.133     avatars0.githubusercontent.com</span><br><span class="line">199.232.28.133     avatars1.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars1.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars2.githubusercontent.com</span><br><span class="line">199.232.28.133     avatars2.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars3.githubusercontent.com</span><br><span class="line">199.232.68.133     avatars3.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars4.githubusercontent.com</span><br><span class="line">199.232.68.133     avatars4.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars5.githubusercontent.com</span><br><span class="line">199.232.68.133     avatars5.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars6.githubusercontent.com</span><br><span class="line">199.232.68.133     avatars6.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars7.githubusercontent.com</span><br><span class="line">199.232.68.133     avatars7.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars8.githubusercontent.com</span><br><span class="line">199.232.68.133     avatars8.githubusercontent.com</span><br><span class="line"># GitHub End</span><br></pre></td></tr></table></figure>
+
+<p>添加完毕后，按 ESC 键退出 INSERT 模式，输入 <code>:wq</code> 命令退出。</p>
+<p>注意：当出现 GitHub 加载过慢或者图片加载失败时，通过控制台查看该网址并通过上面的 ip地址查询网站 中查看对应的 ip地址，将它添加到 hosts 文件中即可。</p>
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>暂时还没尝试。</p>
+]]></content>
+      <tags>
+        <tag>GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript基础学习-不可变的原始值和可变的对象引用</title>
     <url>/2020/05/21/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%9A%84%E5%8E%9F%E5%A7%8B%E5%80%BC%E5%92%8C%E5%8F%AF%E5%8F%98%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8/</url>
     <content><![CDATA[<h3 id="JavaScript的原始值和对象-基本类型和引用类型"><a href="#JavaScript的原始值和对象-基本类型和引用类型" class="headerlink" title="JavaScript的原始值和对象(基本类型和引用类型)"></a>JavaScript的原始值和对象(基本类型和引用类型)</h3><p>JavaScript的基础类型(原始值)：undefined、null、string、number、boolean、symbol</p>
