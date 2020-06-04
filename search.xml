@@ -247,7 +247,20 @@
   <entry>
     <title>JavaScript基础学习-函数</title>
     <url>/2020/06/02/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<h3 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h3><p>关于 this：如果嵌套函数作为方法调用，其 this 值指向调用它的对象。如果嵌套函数作为函数调用，其 this 值不是全局对象就是 undefined。</p>
+    <content><![CDATA[<h3 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h3><p>当使用函数声明语句时，函数名称和函数体都被提升到顶部：所以可以在一个函数声明之前调用它。<br>但使用函数表达式则不可以：因为以表达式定义的函数，其变量的声明提前了，但是函数体没有被提前。</p>
+<h3 id="方法链"><a href="#方法链" class="headerlink" title="方法链"></a>方法链</h3><p>在 jQuery 中，我们竟然见到链式调用的方式，其原理就是当方法不需要返回值时，直接返回 this。</p>
+<h3 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h3><p>关于 this：如果嵌套函数作为方法调用，其 this 值指向调用它的对象。如果嵌套函数作为函数调用，其 this 值不是全局对象就是 undefined。</p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>不在它定义时的作用域链下被调用时，被当作返回值时。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">'global'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkscope</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> scope = <span class="string">'local'</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> scope; &#125;</span><br><span class="line">    <span class="keyword">return</span> f();</span><br><span class="line">&#125;</span><br><span class="line">checkscope(); <span class="comment">// 会返回什么？</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">'global'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkscope</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> scope = <span class="string">'local'</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> scope; &#125;</span><br><span class="line">    <span class="keyword">return</span> f;</span><br><span class="line">&#125;</span><br><span class="line">checkscope()(); <span class="comment">// 会返回什么？</span></span><br></pre></td></tr></table></figure>
+
+<p>在这里，我们想一下此法作用域的基本规则：JavaScript 函数的执行用到了作用域链，这个作用域链是在定义函数时创建的。<br>也就是说，不管这个函数 f() 在哪里被执行，其变量 scope 一定是局部变量。</p>
+<p>闭包其实就是捕捉到局部变量，并一直保存下来。</p>
+<h3 id="call-、apply-和-bind-方法"><a href="#call-、apply-和-bind-方法" class="headerlink" title="call()、apply() 和 bind() 方法"></a>call()、apply() 和 bind() 方法</h3><p>在 ECMAScript5 的严格模式中，call() 和 apply() 的第一个参数都会变为 this 的值，哪怕传入的是原始值，甚至是 null 和 undefined。<br>在 ECMAScript3 和非严格模式中，传入 null 和 undefined 会被替换为全局对象，而其它原始值则会被相应的包装对象替代。</p>
+<p>bind() 方法实现：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">f, o</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (f.bind) <span class="keyword">return</span> f.bind(o)</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> f.apply(o, <span class="built_in">arguments</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>JavaScript</tag>

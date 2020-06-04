@@ -46,8 +46,8 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;函数调用&quot;&gt;&lt;a href=&quot;#函数调用&quot; class=&quot;headerlink&quot; title=&quot;函数调用&quot;&gt;&lt;/a&gt;函数调用&lt;/h3&gt;&lt;p&gt;关于 this：如果嵌套函数作为方法调用，其 this 值指向调用它的对象。如果嵌套函数作为函数调用，其 this 值不是全局对象就是 undefined。&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;h3 id=&quot;函数声明&quot;&gt;&lt;a href=&quot;#函数声明&quot; class=&quot;headerlink&quot; title=&quot;函数声明&quot;&gt;&lt;/a&gt;函数声明&lt;/h3&gt;&lt;p&gt;当使用函数声明语句时，函数名称和函数体都被提升到顶部：所以可以在一个函数声明之前调用它。&lt;br&gt;但使用函数表达式则不可以：因为以表达式定义的函数，其变量的声明提前了，但是函数体没有被提前。&lt;/p&gt;
+&lt;h3 id=&quot;方法链&quot;&gt;&lt;a href=&quot;#方法链&quot; class=&quot;headerlink&quot; title=&quot;方法链&quot;&gt;&lt;/a&gt;方法链&lt;/h3&gt;&lt;p&gt;在 jQuery 中，我们竟然见到链式调用的方式，其原理就是当方法不需要返回值时，直接返回 this。&lt;/p&gt;
     
     </summary>
     
