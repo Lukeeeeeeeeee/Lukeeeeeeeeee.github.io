@@ -1,7 +1,7 @@
 ---
 title: JavaScript基础学习-函数
 date: 2020-06-02 22:23:07
-updated_at: 2020-06-05 22:18:11
+updated:
 tags: [JavaScript]
 ---
 
