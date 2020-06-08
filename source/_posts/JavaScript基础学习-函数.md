@@ -1,7 +1,7 @@
 ---
 title: JavaScript基础学习-函数
 date: 2020-06-02 22:23:07
-updated:
+updated: 
 tags: [JavaScript]
 ---
 
@@ -59,6 +59,87 @@ function bind(f, o) {
     if (f.bind) return f.bind(o)
     else return function () {
         return f.apply(o, arguments);
+    }
+}
+```
+
+### ES5 实现 ES6 的 Set 对象
+
+```javascript
+function Set() {
+    this.values = {};                   // 集合数据保存在对象的属性
+    this.n = 0;                         // 集合中值的个数
+    this.add.apply(this, arguments);    // 把所有参数都添加进这个集合
+}
+
+Set._v2s.next = 100;    // 设置初始 id 值
+
+Set._v2s = function (val) {
+    switch(val) {
+        case undefined: return 'u';                 //
+        case null: return 'n';                      //  特殊的原始值
+        case true: return 't';                      //  返回其首字母
+        case false: return 'f';                     //
+        default: switch(typeof val) {               
+            case 'number': return '#' + val;        // 数字带有 # 前缀
+            case 'string': return '"' + val;        // 字符串带有 " 前缀
+            default: return '@' + objectId(val);    // object 和 function 该有 @ 前缀
+        }
+    }
+    /**
+     * 对任意对象来说，都会返回一个字符串
+     * 针对不同的对象，这个函数会返回不同的字符串
+     * 对于同一个对象的多次调用，总是返回相同的字符串
+     * hasOwnProperty() 方法只检查是否是自身属性
+    */
+    function objeceId(o) {
+        var prop = '|**objectId**|';                // 私有属性，用以存放 id
+        if (!o.hasOwnProperty(prop)) {              // 如果对象没有 id
+            o[prop] = Set._v2s.next++;              // 将下一个值赋给它
+        }
+        return o[prop];                             // 返回这个 id
+    }
+}
+
+Set.prototype.add = function () {
+    for (var i = 0; i < arguments.length; i++) {
+        var val = arguments[i];
+        var str = Set._v2s(val);
+        if (!this.values.hasOwnProperty(str)) {
+            this.values[str] = val;
+            this.n++;
+        }
+    }
+    return this;
+}
+
+Set.prototype.remove = function () {
+    for (var i = 0; i < arguments.length; i++) {
+        var str = Set._v2s(arguments[i]);
+        if (this.values.hasOwnPrototype(str)) {
+            delete this.values[str];
+            this.n--;
+        }
+    }
+    return this;
+}
+
+/**
+ * 判断集合是否包含这个值
+*/
+Set.prototype.contains = function (value) {
+    return this.values.hasOwnProperty(Set._v2s(value));
+}
+
+Set.prototype.size = function () {
+    return this.n;
+}
+
+Set.prototype.foreach = function (f, context) {
+    for (var s in this.values) {
+        if (this.values.hasOwnProperty(s)) {
+            f.call(context, this.values[s]);
+        }
     }
 }
 ```
