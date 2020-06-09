@@ -144,6 +144,66 @@ Set.prototype.foreach = function (f, context) {
 }
 ```
 
+### ES5 实现枚举类型
+
+```javascript
+function inherit(p) {
+    // p 是一个对象，而不能是 null
+    if (p == null) throw TypeError();
+    // 如果有 Object.create() 方法，直接使用
+    if (Object.create) return Object.create(p);
+    // 否则获取 p 的类型进行检测
+    var t = typeof p;
+    if (t !== 'object' && t !== 'function') throw TypeError();
+    // 定义一个空构造函数
+    function f() {};
+    // 将它的原型属性设置为 p
+    f.prototype = p;
+    // 返回一个使用 f() 方法创建的 p 的对象
+    return new f();
+}
+
+function enumeration(nameToValues) {
+    var enumeration = function() { throw "Can't Instantiate Enumerations"; }
+    var proto = enumeration.prototype = {
+        constructor: enumeration,
+        toString: function () { return this.name; },
+        valueOf: function () { return this.value; },
+        toJSON: function () { return this.name; }
+    }
+
+    // 用以存放枚举对象的数组
+    enumeration.values = [];
+
+    for (name in nameToValues) {
+        // 首先返回一个以 proto 继承的对象
+        var e = inherit(proto);
+        e.name = name;
+        e.value = nameToValues[name];
+        enumeration[name] = e;
+        enumeration.values.push(e);
+    }
+
+    enumeration.foreach = function (f, c) {
+        for (var i = 0; i < this.values.length; i++) {
+            f.call(c, this.value[i]);
+        }
+    }
+
+    return enumeration;
+}
+
+var Coin = enumeration({Penny: 1, Nickel: 5, Dime: 10, Quarter: 25});
+var c = Coin.Dime;
+c instanceof Coin;                      // => true
+c.constructor == Coin;                  // => true
+Coin.Quarter + 3 * Coin.Nickel;         // => 40
+Coin.Dime == 10;                        // => true
+Coin.Dime > Coin.Nickel;                // => true
+String(Coin.Dime) + ':' + Coin.Dime;    // => 'Dime: 10'
+
+```
+
 ```javascript
 
 ```
